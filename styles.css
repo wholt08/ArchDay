@@ -1,22 +1,44 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root {
+    --primary-color: #F4AF27; /* Orangish background */
+    --secondary-color: #707070; /* Teal, adjust as needed */
 }
 
-header, footer {
-    background: #333;
+body {
+    font-family: 'Roboto', sans-serif; /* Keeps the body font as Roboto */
+    margin: 0;
+    padding: 0;
+    background: #F4AF27;
+}
+
+header {
+    background: url('legobanner2.png') no-repeat center center; /* Add your background image */
+    background-size: cover; /* Ensure it covers the entire header */
+    background-color: var(--primary-color); /* Orangish background color as fallback */
     color: white;
     text-align: center;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px; /* Adjust height as necessary */
+}
+
+
+header h1 {
+    font-family: 'Montserrat', sans-serif; /* Montserrat for the title */
+    font-size: 48px; /* Larger font size for the title */
+    margin: 0;
     padding: 10px 0;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    background: #555;
+    background: var(--secondary-color);
     text-align: center;
+    margin: 0;
 }
 
 nav ul li {
@@ -27,13 +49,16 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 15px 20px;
+    display: inline-block;
 }
 
 section {
     padding: 20px;
     background: white;
     border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 8px;
 }
 
 details {
@@ -47,27 +72,53 @@ details summary {
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px;
     margin-top: 10px;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border-bottom: 2px solid #eee;
+    padding: 12px 15px;
     text-align: left;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: var(--secondary-color);
+    color: white;
 }
 
 footer {
-    background: #333;
+    background: var(--primary-color);
     color: white;
     text-align: center;
-    position: fixed;
-    bottom: 0;
+    position: relative;
     width: 100%;
     padding: 10px 0;
 }
 
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-right: 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px;
+        text-align: center;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+a, button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a:active {
+    background-color: #333;
+    color: white;
+}
