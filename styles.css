@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background: url('legobanner2.png') no-repeat center center; /* Add your background image */
+    background: url('Legobanner2.png') no-repeat center center; /* Add your background image */
     background-size: cover; /* Ensure it covers the entire header */
     background-color: var(--primary-color); /* Orangish background color as fallback */
     color: white;
