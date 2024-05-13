@@ -2921,21 +2921,31 @@ input, select, textarea {
 
 	}
 
-	.campus-container {
-		display: flex;
-		align-items: start;
-		justify-content: space-between;
-	}
-	
-	.campus-map, .campus-info {
-		flex: 1; /* Assigns equal width to both children */
-		padding: 10px;
-	}
-	
-	.campus-map img {
-		width: 100%; /* Makes the image responsive */
-		height: auto;
-	}
+
+/* Campus navigation container */
+.campus-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+/* Campus map styling */
+.campus-map {
+    flex: 1 1 100%;
+    margin-bottom: 1em;
+}
+
+.campus-map img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Campus info styling */
+.campus-info {
+    flex: 1 1 100%;
+}
 
 	.vendor-logos {
 		display: flex;
@@ -3022,6 +3032,20 @@ input, select, textarea {
     .day-btn {
         margin: 0.2em 0;
     }
+	.campus-container {
+        flex-direction: row;
+    }
+
+    .campus-map {
+        flex: 1 1 45%;
+        margin-bottom: 0;
+    }
+
+    .campus-info {
+        flex: 1 1 45%;
+    }
 }
+
+
 	
 	
