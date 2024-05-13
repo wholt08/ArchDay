@@ -51,8 +51,6 @@
 								<h2>Architecture Day 2024</h2>
 								<p>Building blocks for our future.</p>
 							</header>
-							<img src="./images/legoguy2.png" id="logo-right" class="logo">
-							<img src="./images/legomess.png" id="logo-left" class="logo">
 						</section>
 
 					<!-- Intro -->
@@ -333,9 +331,8 @@
 						</div>
 					</div>
 				</section>
-
-			<!-- Footer -->
-				<!-- Footer -->
+		
+<!-- Footer -->				
 <section id="footer">
     <div class="container">
         <header>
@@ -361,22 +358,36 @@
 				document.addEventListener('DOMContentLoaded', function () {
 					const navLinks = document.querySelectorAll('#nav a'); // Select all anchor tags inside the nav element
 			
-					navLinks.forEach(link => {
-						link.addEventListener('click', function (event) {
-							const targetId = event.target.getAttribute('href'); // Get the href attribute of the clicked link
-							const targetDetails = document.querySelector(targetId); // Select the details element by ID
+					const handleNavClick = (event) => {
+						event.preventDefault(); // Prevent default anchor click behavior
+						console.log('Nav link clicked:', event.target); // Debug statement
 			
-							if (targetDetails) {
-								targetDetails.open = true; // Open the details element
-								// Optionally close other details elements
-								document.querySelectorAll('details').forEach(detail => {
-									if (detail.id !== targetDetails.id) detail.open = false;
-								});
-							}
-						});
+						const targetId = event.target.getAttribute('href'); // Get the href attribute of the clicked link
+						const targetDetails = document.querySelector(targetId); // Select the details element by ID
+			
+						if (targetDetails) {
+							console.log('Target details found:', targetDetails); // Debug statement
+							targetDetails.open = true; // Open the details element
+			
+							// Optionally close other details elements
+							document.querySelectorAll('details').forEach(detail => {
+								if (detail.id !== targetDetails.id) detail.open = false;
+							});
+			
+							// Scroll to the target element smoothly
+							targetDetails.scrollIntoView({ behavior: 'smooth' });
+						} else {
+							console.log('Target details not found for:', targetId); // Debug statement
+						}
+					};
+			
+					navLinks.forEach(link => {
+						link.addEventListener('click', handleNavClick);
+						link.addEventListener('touchstart', handleNavClick); // Add touchstart event for mobile devices
 					});
 				});
 			</script>
+
 
 			<!--schedule functionality-->
 			<script>
