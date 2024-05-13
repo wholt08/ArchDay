@@ -6,11 +6,21 @@
 -->
 <html>
 	<head>
+		<!-- Google tag (gtag.js) -->
+				<script async src="https://www.googletagmanager.com/gtag/js?id=G-1EQRHCP5N1"></script>
+				<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+		
+				gtag('config', 'G-1EQRHCP5N1');
+				</script>
 		<title>Architecture Day</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+
 	<body class="homepage is-preload">
 		<div id="page-wrapper">
 
@@ -25,9 +35,12 @@
 						<ul>
 							<li class="current"><a href="index.html">Home</a></li>
 							<li><a href="#schedule">Schedule</a></li>
-							<li><a href="#dress-code">Dress Code</a></li>
-							<li><a href="#vendors">Featured Vendors</a></li>
-							<li><a href="no-sidebar.html">Contact</a></li>
+							<li><a href="#wifi-details">Wifi</a></li>
+							<li><a href="#dress-code-details">Dress Code</a></li>
+							<li><a href="#parking-details">Parking</a></li>
+							<li><a href="#campus-navigation-details">Navigating STL</a></li>
+							<li><a href="#vendors-details">Featured Vendors</a></li>
+							
 						</ul>
 					</nav>
 					
@@ -38,6 +51,8 @@
 								<h2>Architecture Day 2024</h2>
 								<p>Building blocks for our future.</p>
 							</header>
+							<img src="./images/legoguy2.png" id="logo-right" class="logo">
+							<img src="./images/legomess.png" id="logo-left" class="logo">
 						</section>
 
 					<!-- Intro -->
@@ -86,14 +101,25 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
-								
+															
 								<!-- Schedule -->
 								<section id="schedule">
-									<h2>General Info</h2>
-									<section id="schedule">
-										<h2>Schedule</h2>
-										<details >
-											<summary>June 11, Tuesday - Day 1</summary>
+									<h2>Schedule</h2>
+
+										<div class="schedule-nav">
+											<button class="day-btn" data-day="monday">Monday</button>
+											<button class="day-btn" data-day="tuesday">Tuesday</button>
+											<button class="day-btn" data-day="wednesday">Wednesday</button>
+											<button class="day-btn" data-day="thursday">Thursday</button>
+										</div>
+										<div id="monday" class="schedule-content hidden">
+											<h3>Monday's Schedule</h3>
+											<!-- Schedule details for Monday -->
+										</div>
+										
+										<div id="tuesday" class="schedule-content hidden">
+											<h3>Tuesday's Schedule</h3>
+											<!-- Schedule details for Tuesday -->
 											<table>
 												<tr>
 													<th>Time</th>
@@ -162,24 +188,24 @@
 													<td>Case Study Presentation: BI Success Stories and Lessons Learned</td>
 												</tr>
 											</table>
-										</details>
-									<details>
-										<summary>June 12, Wednesday</summary>
-										<p>Architecture Day</p>
-										<p>BI Summit Presentations</p>
-									</details>
-									<details>
-										<summary>June 13, Thursday</summary>
-										<p>Architecture Day</p>
-										<p>BI Summit Presentations</p>
-									</details>
+										</div>
+										
+										<div id="wednesday" class="schedule-content hidden">
+											<h3>Wednesday's Schedule</h3>
+											<!-- Schedule details for Wednesday -->
+										</div>
+										
+										<div id="thursday" class="schedule-content hidden">
+											<h3>Thursday's Schedule</h3>
+											<!-- Schedule details for Thursday -->
+										</div>
+
 								</section>
-								
 
 								<!-- Wifi -->
 								<section id="wifi">
 									<h2>WiFi Instructions</h2>
-									<details>
+									<details id="wifi-details">
 										<summary>Connect to WiFi</summary>
 										<ol>
 											<li>Connect to the CNC-Guest Wi-Fi network.</li>
@@ -203,9 +229,10 @@
 									</details>
 								</section>
 								
+								<!-- Dress Code -->
 								<section id="dress-code">
 									<h2>What to Wear?</h2>
-									<details>
+									<details id="dress-code-details">
 										<summary>View Dress Code</summary>
 										<p>Smart Casual! Smart casual attire can be any clothing that gives the wearer a clean, neat appearance. This means that the style is still relatively informal, overall.</p>
 										<ul>
@@ -219,15 +246,87 @@
 									</details>
 								</section>
 
+								<!-- Parking Section -->
+								<section id="parking">
+									<h2>Parking Options</h2>
+									<details id="parking-details">
+										<summary>View Parking Options</summary>
+										<ul>
+											<li>
+												Parking 3: <a href="https://maps.google.com/?q=7700+Forsyth+Blvd,Clayton,MO" target="_blank">7700 Forsyth Blvd.</a> (Directly West of Building B)
+												<ul>
+													<li>Visitor Levels: Levels 2-5 (unless otherwise designated)</li></ul>
+												
+											</li>
+											<li>
+												Parking 4: <a href="https://maps.google.com/?q=7620+Forsyth+Blvd,Clayton,MO" target="_blank">7620 Forsyth Blvd. </a> (Attached to Building C)
+												<ul>
+													<li>Visitor Levels: Levels 2 & 3 (unless otherwise designated)</li></ul>
+												
+											</li>
+											<li>ADA Accessible Parking: Available in both Parking 3 and Parking 4.</li>
+											<li>Emergency Assistance: Contact our Global Security Operations Center at 314-445-0911.</li>
+											<li>Validate your parking tickets at the Security Desk in Building B or C.</li>
+										</ul>
+									</details>
+								</section>
+
+								<!-- Navigating the St. Louis Campus Section -->
+								<section id="campus-navigation">
+									<h2>Navigating the St. Louis Campus</h2>
+									<details id="campus-navigation-details">
+										<summary>View Campus Map and Details</summary>
+										<div class="campus-container">
+											<div class="campus-map">
+												<img src="./images/campusmap.png" alt="Campus Map">
+											</div>
+											<div class="campus-info">
+												<ul>
+													<li><strong>Centene Buildings:</strong>
+														<ul>
+															<li><a href="https://maps.google.com/?q=7711+Carondelet+Ave,Clayton,MO" target="_blank">Building A – 7711 Carondelet Ave</a></li>
+															<li><a href="https://maps.google.com/?q=7700+Forsyth+Blvd,Clayton,MO" target="_blank">Building B – 7700 Forsyth Blvd</a></li>
+															<li><a href="https://maps.google.com/?q=7676+Forsyth+Blvd,Clayton,MO" target="_blank">Building C – 7676 Forsyth Blvd</a></li>
+															<li><a href="https://maps.google.com/?q=7501+Maryland+Ave,Clayton,MO" target="_blank">Building U – 7501 Maryland Ave</a></li>
+														</ul>
+													</li>
+													<li><strong>Centene Parking:</strong>
+														<ul>
+															<li><a href="https://maps.google.com/?q=7733+Carondelet+Ave,Clayton,MO" target="_blank">Parking 1 – 7733 Carondelet Ave</a></li>
+															<li><a href="https://maps.google.com/?q=7711+Carondelet+Ave,Clayton,MO" target="_blank">Parking 2 – 7711 Carondelet Ave</a></li>
+															<li><a href="https://maps.google.com/?q=7700+Forsyth+Blvd,Clayton,MO" target="_blank">Parking 3 – 7700 Forsyth Blvd</a></li>
+															<li><a href="https://maps.google.com/?q=7620+Forsyth+Blvd,Clayton,MO" target="_blank">Parking 4 – 7620 Forsyth Blvd</a></li>
+														</ul>
+													</li>
+													<li><strong>Public Parking:</strong>
+														<ul>
+															<li><a href="https://maps.google.com/?q=7550+Forsyth+Blvd,Clayton,MO" target="_blank">7550 Forsyth Blvd</a></li>
+														</ul>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</details>
+								</section>
+
+
+
 								<section id="vendors">
 									<h2>Featured Vendors</h2>
-									<details>
+									<details id="vendors-details">
 										<summary>View Vendors</summary>
-										<ul>
-											<li>Databricks</li>
-											<li>Snowflake</li>
-											<!-- Add more vendors here -->
-										</ul>
+										<p>Check out our featured vendors at the Expo:</p>
+										<div class="vendor-logos">
+											<img src="./images/microsoft.png" alt="Microsoft">
+											<img src="./images/snowflake.png" alt="Snowflake">
+											<img src="./images/alation.png" alt="Alation">
+											<img src="./images/gitlab.png" alt="GitLab">
+											<img src="./images/databricks.png" alt="Databricks">
+											<img src="./images/dynatrace.png" alt="Dynatrace">
+											<img src="./images/informatica.png" alt="Informatica">
+											<img src="./images/upsolver.png" alt="Upsolver">
+											<img src="./images/bigeye.webp" alt="Bigeye">
+										</div>
 									</details>
 								</section>
 							</div>
@@ -257,5 +356,63 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<!--Nav Buttons functionality-->
+			<script>
+				document.addEventListener('DOMContentLoaded', function () {
+					const navLinks = document.querySelectorAll('#nav a'); // Select all anchor tags inside the nav element
+			
+					navLinks.forEach(link => {
+						link.addEventListener('click', function (event) {
+							const targetId = event.target.getAttribute('href'); // Get the href attribute of the clicked link
+							const targetDetails = document.querySelector(targetId); // Select the details element by ID
+			
+							if (targetDetails) {
+								targetDetails.open = true; // Open the details element
+								// Optionally close other details elements
+								document.querySelectorAll('details').forEach(detail => {
+									if (detail.id !== targetDetails.id) detail.open = false;
+								});
+							}
+						});
+					});
+				});
+			</script>
+
+			<!--schedule functionality-->
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					const buttons = document.querySelectorAll('.day-btn');
+					const schedules = document.querySelectorAll('.schedule-content');
+			
+					buttons.forEach(button => {
+						button.addEventListener('click', function() {
+							// Remove 'selected' class from all buttons
+							buttons.forEach(btn => {
+								btn.classList.remove('selected');
+							});
+			
+							// Add 'selected' class to the clicked button
+							this.classList.add('selected');
+			
+							const selectedDay = this.getAttribute('data-day');
+			
+							// Hide all schedules
+							schedules.forEach(schedule => {
+								schedule.classList.add('hidden');
+							});
+			
+							// Show the selected day's schedule
+							const activeSchedule = document.getElementById(selectedDay);
+							if (activeSchedule) {
+								activeSchedule.classList.remove('hidden');
+							}
+						});
+					});
+				});
+			</script>
+			
+
 	</body>
+
+
 </html>

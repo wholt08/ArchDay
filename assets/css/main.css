@@ -148,7 +148,7 @@ input, select, textarea {
 	}
 
 	h3 {
-		font-size: 1.35em;
+		font-size: 1.25em;
 	}
 
 	a {
@@ -2173,7 +2173,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background: #F4AF27 url("../../images/Legobanner2.png");
+		background: #F4AF27;
 		background-position: center center;
 		background-size: auto 100%;
 		background-repeat: no-repeat;
@@ -2181,6 +2181,23 @@ input, select, textarea {
 		position: relative;
 		padding: 8em 0;
 		margin: 4em 0 0 0;
+
+		
+	}
+
+	.logo {
+		height: 438px; /* Adjust size as needed */
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	#logo-left {
+		left: 20px; /* Adjust spacing from the left */
+	}
+	
+	#logo-right {
+		right: 20px; /* Adjust spacing from the right */
 	}
 
 		#banner header {
@@ -2906,3 +2923,67 @@ input, select, textarea {
 			}
 
 	}
+
+	.campus-container {
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+	}
+	
+	.campus-map, .campus-info {
+		flex: 1; /* Assigns equal width to both children */
+		padding: 10px;
+	}
+	
+	.campus-map img {
+		width: 100%; /* Makes the image responsive */
+		height: auto;
+	}
+
+	.vendor-logos {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around; /* This will space out the logos evenly */
+		align-items: center;
+		padding: 20px 0;
+	}
+	
+	.vendor-logos img {
+		/*flex: 1 1 20%; */
+		width: 20%; /* Adjust the size of logos */
+		margin: 10px; /* Provides space around each logo */
+		height: auto; /* Maintains aspect ratio */
+		/*max-width: 120px; /* Ensures logos don't get too large */
+	}
+
+	.hidden {
+		display: none;
+	}
+	
+	.schedule-content {
+		margin-top: 20px;
+	}
+
+	.day-btn {
+		background-color: #F4AF27; /* Default background color */
+		color: #333; /* Default text color */
+		padding: 10px 20px;
+		margin: 5px;
+		border: none;
+		cursor: pointer;
+		transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+	}
+	
+	.day-btn:hover {
+		background-color: #797979; /* Change to your desired hover background color */
+		color: #ffffff; /* Change to your desired hover text color */
+	}
+
+	.day-btn.selected {
+		background-color: #333; /* Dark grey background for selected button */
+		color: #fff; /* White text color for contrast */
+	}
+	
+	
+	
+	
