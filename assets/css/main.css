@@ -2944,6 +2944,16 @@ input, select, textarea {
 /* Campus info styling */
 .campus-info {
     width: 100%;
+	display: flex;
+    justify-content: space-between;
+}
+.campus-info ul {
+    flex: 1;
+    margin-right: 10px;
+}
+.additional-info {
+    margin-top: 20px;
+    text-align: left;
 }
 
 	.vendor-logos {
