@@ -2925,14 +2925,13 @@ input, select, textarea {
 .campus-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 2em;
 }
 
 /* Campus map styling */
 .campus-map {
     width: 100%;
     margin-bottom: 1em;
+	touch-action: pan-x pan-y;
 }
 
 .campus-map img {
@@ -2944,16 +2943,20 @@ input, select, textarea {
 
 /* Campus info styling */
 .campus-info {
-    width: 100%;
-	display: flex;
+    display: flex;
     justify-content: space-between;
+    margin-bottom: 20px; /* Add margin to separate the columns from the additional info */
 }
 .campus-info ul {
     flex: 1;
     margin-right: 10px;
 }
+
+.campus-info ul:last-child {
+    margin-right: 0; /* Remove margin from the last column */
+}
+
 .additional-info {
-    margin-top: 20px;
     text-align: left;
 }
 
