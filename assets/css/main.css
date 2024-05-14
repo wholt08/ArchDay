@@ -2939,6 +2939,7 @@ input, select, textarea {
     width: 100%;
     height: auto;
     border-radius: 5px;
+	touch-action: pan-x pan-y;
 }
 
 /* Campus info styling */
