@@ -3016,6 +3016,11 @@ input, select, textarea {
 		color: #fff; /* White text color for contrast */
 	}
 	
+/* Hidden class to hide schedule content */
+.hidden {
+    display: none;
+}
+
 /* Adjusting for small screens */
 @media screen and (max-width: 768px) {
     #schedule table th, #schedule table td {
