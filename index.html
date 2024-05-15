@@ -535,14 +535,12 @@
 												<ul>
 													<li><strong>Centene Buildings:</strong>
 														<ul>
-															<li><a href="#" data-geo="geo:38.650900,-90.339800" data-map="https://maps.google.com/?q=7711+Carondelet+Ave,Clayton,MO" target="_blank">Building A – 7711 Carondelet Ave</a></li>
-															<li><a href="#" data-geo="geo:38.651300,-90.339200" data-map="https://maps.google.com/?q=7700+Forsyth+Blvd,Clayton,MO" target="_blank">Building B – 7700 Forsyth Blvd</a></li>
-															<li><a href="#" data-geo="geo:38.650000,-90.339600" data-map="https://maps.google.com/?q=7676+Forsyth+Blvd,Clayton,MO" target="_blank">Building C – 7676 Forsyth Blvd</a></li>
-															<li><a href="#" data-geo="geo:38.648800,-90.340900" data-map="https://maps.google.com/?q=7501+Maryland+Ave,Clayton,MO" target="_blank">Building U – 7501 Maryland Ave</a></li>
+															<li><a href="#" data-geo="geo:38.650900,-90.339800?q=7711 Carondelet Ave, Clayton, MO" data-map="https://maps.google.com/?q=7711+Carondelet+Ave,Clayton,MO" target="_blank">Building A – 7711 Carondelet Ave</a></li>
+															<li><a href="#" data-geo="geo:38.651300,-90.339200?q=7700 Forsyth Blvd, Clayton, MO" data-map="https://maps.google.com/?q=7700+Forsyth+Blvd,Clayton,MO" target="_blank">Building B – 7700 Forsyth Blvd</a></li>
+															<li><a href="#" data-geo="geo:38.650000,-90.339600?q=7676 Forsyth Blvd, Clayton, MO" data-map="https://maps.google.com/?q=7676+Forsyth+Blvd,Clayton,MO" target="_blank">Building C – 7676 Forsyth Blvd</a></li>
+															<li><a href="#" data-geo="geo:38.648800,-90.340900?q=7501 Maryland Ave, Clayton, MO" data-map="https://maps.google.com/?q=7501+Maryland+Ave,Clayton,MO" target="_blank">Building U – 7501 Maryland Ave</a></li>															
 														</ul>
 													</li>
-												</ul>
-												<ul>
 													<li><strong>Centene Parking:</strong>
 														<ul>
 															<li><a href="#" data-geo="geo:38.650900,-90.339800" data-map="https://maps.google.com/?q=7733+Carondelet+Ave,Clayton,MO" target="_blank">Parking 1 – 7733 Carondelet Ave</a></li>
@@ -551,8 +549,6 @@
 															<li><a href="#" data-geo="geo:38.650000,-90.339600" data-map="https://maps.google.com/?q=7620+Forsyth+Blvd,Clayton,MO" target="_blank">Parking 4 – 7620 Forsyth Blvd</a></li>
 														</ul>
 													</li>
-												</ul>
-												<ul>
 													<li><strong>Public Parking:</strong>
 														<ul>
 															<li><a href="#" data-geo="geo:38.650000,-90.339600" data-map="https://maps.google.com/?q=7550+Forsyth+Blvd,Clayton,MO" target="_blank">7550 Forsyth Blvd</a></li>
@@ -570,6 +566,7 @@
 										</div>
 									</details>
 								</section>
+
 
 
 
@@ -731,15 +728,19 @@
 			<script>
 				document.addEventListener('DOMContentLoaded', function () {
 					const links = document.querySelectorAll('a[data-geo]');
-					const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-				
+
 					links.forEach(link => {
-						const geoLocation = link.getAttribute('data-geo');
-						const mapLink = link.getAttribute('data-map');
-						link.href = isMobile ? geoLocation : mapLink;
+						link.addEventListener('click', function (event) {
+							event.preventDefault();
+							const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+							const geoLocation = link.getAttribute('data-geo');
+							const mapLink = link.getAttribute('data-map');
+							const destination = isMobile ? `geo:${geoLocation.replace('geo:', '')}` : mapLink;
+							window.open(destination, '_blank');
+						});
 					});
 				});
-				</script>
+			</script>
 
 			
 
