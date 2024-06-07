@@ -2995,13 +2995,14 @@ input, select, textarea {
 #schedule table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
+    /*table-layout: fixed;*/
+	overflow-x: auto;
 }
 
 #schedule table th, #schedule table td {
     padding: 0.5em;
     text-align: left;
-    word-wrap: break-word; /* Ensure content wraps within the cell */
+    /*word-wrap: break-word; /* Ensure content wraps within the cell */
 }
 
 .schedule-nav {
@@ -3034,6 +3035,29 @@ input, select, textarea {
 .hidden {
     display: none;
 }
+
+
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 90%;
+    margin: 10px auto;
+    padding: 16px;
+    background-color: #fff;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 
 /* Adjusting for small screens */
 @media screen and (max-width: 768px) {
