@@ -120,7 +120,7 @@
 										</div>
 										
 										<div id="tuesday" class="schedule-content hidden">
-											<h3>Tuesday's Schedule</h3>
+											<h3>Tuesday's Schedule (CT)</h3>
 											<!--Tuesday Cards-->
 											<div class="card">
 												<h4>7:00-7:45 AM - Registration</h4>
@@ -589,7 +589,7 @@
 										</div>
 										
 										<div id="thursday" class="schedule-content hidden">
-											<h3>Thursday's Schedule</h3>
+											<h3>Thursday's Schedule (CT)</h3>
 
 											<div class="card">
 												<h4>8:00-8:30 AM - STL Registration and Info Pickup</h4>
@@ -935,7 +935,7 @@
 										<summary>View Campus Map and Details</summary>
 										<div class="campus-container">
 											<div class="campus-map">
-												<img src="./images/campusmap.png" alt="Campus Map">
+												<img src="./images/campusmap.png" alt="Campus Map" class="zoom-map" >
 											</div>
 											<div class="campus-info">
 												<ul>
@@ -983,7 +983,7 @@
 										<summary>View Campus Map and Details</summary>
 										<div class="campus-container">
 											<div class="campus-map">
-												<img src="./images/cnctampacampus.png" alt="Tampa Campus Map">
+												<img src="./images/cnctampacampus.png" alt="Tampa Campus Map" class="zoom-map">
 											</div>
 											<div class="campus-info" style="display: flex; justify-content: space-between;">
 												<ul style="flex: 1; margin-right: 10px;">
@@ -1127,6 +1127,30 @@
 				});
 			</script>
 
+		<!--Add zoom capabilities to maps-->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+			  const maps = document.querySelectorAll('.zoom-map');
+			  const overlay = document.createElement('div');
+			  overlay.className = 'overlay';
+			  document.body.appendChild(overlay);
+			
+			  maps.forEach(map => {
+				const imgCopy = document.createElement('img');
+				map.addEventListener('click', function() {
+				  imgCopy.src = this.src;  // Set the source of the copy
+				  overlay.innerHTML = '';  // Clear the overlay
+				  overlay.appendChild(imgCopy);  // Add the new image
+				  overlay.classList.add('show');  // Show the overlay
+				});
+			  });
+			
+			  overlay.addEventListener('click', function() {
+				this.classList.remove('show');  // Hide the overlay on click
+			  });
+			});
+			</script>
+			
 		
 			<script src="//code.tidio.co/vahcomnttvwl7rsxvsah74xuglyjfgpw.js" async></script>
 
