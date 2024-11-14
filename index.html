@@ -27,6 +27,30 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
+		.blinking-cursor-container {
+			font-family: 'Courier New', monospace;
+			/* color: #ff4d4d; Adjust color to match your spy theme */
+			color: #ff4d4d; /* Adjust color to match your spy theme */
+			display: inline-flex;
+			font-size: 1.5rem;
+			margin-top: 10px; /* Adjust positioning if needed */
+		}
+
+		.cursor {
+			animation: blink 0.7s steps(2, start) infinite;
+			font-weight: bold;
+			color: #ff4d4d;
+			margin-left: 5px;
+		}
+
+		@keyframes blink {
+			0%, 100% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0;
+			}
+		}
     </style>
 </head>
 <body class="bg-black text-gray-100">
@@ -41,6 +65,12 @@
             <div class="text-2xl mission-text">
                 <div class="mb-4">February 5-6th, 2025</div>
                 <div>Centene Campus - Clayton, MO</div>
+				<p><br>
+				<div class="blinking-cursor-container">
+					<span class="blinking-text">Incoming Transmission Below...</span>
+					<span class="cursor">|</span>
+				</div>
+				</p>
             </div>
         </div>
     </header>
