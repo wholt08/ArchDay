@@ -102,7 +102,8 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'Source Sans Pro';
+		/*font-family: 'Source Sans Pro'; */
+		font-family: 'Compacta';
 		font-weight: 300;
 		color: #0b0b0b;
 		font-size: 14pt;
@@ -2120,7 +2121,7 @@ input, select, textarea {
 				}
 
 				#nav > ul > li.current > a {
-					background: #F4AF27;
+					background: #000000;
 					color: #fff !important;
 					font-weight: 700;
 				}
@@ -2176,10 +2177,10 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background: #F4AF27;
-		background-image: url('../../images/Legobanner2.png');
+		background: #000000;
+		background-image: url('../../images/misky.jpg');
 		background-position: center;
-		background-size: cover;
+		background-size: contain;
 		background-repeat: no-repeat;
 		text-align: center;
 		position: relative;
@@ -3012,7 +3013,7 @@ input, select, textarea {
 }
 
 	.day-btn {
-		background-color: #F4AF27; /* Default background color */
+		background-color: #000000; /* Default background color */
 		color: #333; /* Default text color */
 		padding: 10px 20px;
 		margin: 5px;
