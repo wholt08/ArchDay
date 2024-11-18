@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Architecture Mission 2025</title>
+    <title>Arch Summit 2025</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         .mission-text {
@@ -51,6 +51,30 @@
 				opacity: 0;
 			}
 		}
+		.typewriter {
+			font-family: 'Courier New', monospace;
+			font-size: 1.5rem;
+			color: #ff4d4d; /* Adjust to match your theme */
+			border-right: 0.15em solid #ff4d4d; /* Blinking cursor effect */
+			overflow: hidden;
+			display: inline-block;
+			animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+			white-space: nowrap; /* Doesn't wrapping of text */
+			
+		}
+
+
+		@keyframes typing {
+			from { width: 0; }
+			to { width: 100%; }
+		}
+
+		@keyframes blink-caret {
+			from, to { border-color: transparent; }
+			50% { border-color: #ff4d4d; }
+		}
+
+
     </style>
 </head>
 <body class="bg-black text-gray-100">
@@ -61,14 +85,16 @@
             <h1 class="mission-text text-4xl md:text-6xl font-bold mb-4 red-glow">
                 Architecture Summit 2025
             </h1>
-            <p class="text-xl md:text-2xl mb-8 text-red-500">Your Mission, Should You Choose to Accept It</p>
+            <p class="text-xl md:text-2xl mb-8 text-red-500">Mission Possible: Bold Simplicity</p>
             <div class="text-2xl mission-text">
                 <div class="mb-4">February 5-6th, 2025</div>
                 <div>Centene Campus - Clayton, MO</div>
 				<p><br>
 				<div class="blinking-cursor-container">
-					<span class="blinking-text">Incoming Transmission Below...</span>
-					<span class="cursor">|</span>
+					<div class="typewriter">
+						<span>INTERCEPTED MESSAGE BELOW...</span>
+					</div>
+					
 				</div>
 				</p>
             </div>
@@ -105,14 +131,14 @@
     <!-- Schedule Section -->
     <section id="schedule" class="py-20 bg-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Mission Timeline</h2>
+            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Mission Schedule</h2>
             <div class="max-w-3xl mx-auto">
                 <div class="bg-black p-6 rounded-lg text-center">
                     <div class="mission-text text-red-500 text-xl mb-4">
                         ⚠ CLASSIFIED INFORMATION ⚠
                     </div>
                     <p class="text-gray-300">
-                        Mission timeline details are currently being decoded.<br>
+                        Mission schedule details are currently being decoded.<br>
                         Operatives will be briefed on the complete schedule shortly.
                     </p>
                     <div class="mt-6 p-4 border border-red-800 rounded-lg inline-block">
