@@ -6,324 +6,501 @@
     <title>Arch Summit 2025</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        .mission-text {
-            font-family: 'Courier New', monospace;
-            text-transform: uppercase;
-        }
-        .section-fade {
-            background: linear-gradient(45deg, #000000 0%, #1a1a1a 100%);
-        }
-        .red-glow {
-            text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
-        }
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        .hover-scale:hover {
-            transform: scale(1.02);
-        }
-        .map-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-		.blinking-cursor-container {
-			font-family: 'Courier New', monospace;
-			/* color: #ff4d4d; Adjust color to match your spy theme */
-			color: #ff4d4d; /* Adjust color to match your spy theme */
-			display: inline-flex;
-			font-size: 1.5rem;
-			margin-top: 10px; /* Adjust positioning if needed */
-		}
-
-		.cursor {
-			animation: blink 0.7s steps(2, start) infinite;
-			font-weight: bold;
-			color: #ff4d4d;
-			margin-left: 5px;
-		}
-
-		@keyframes blink {
-			0%, 100% {
-				opacity: 1;
-			}
-			50% {
-				opacity: 0;
-			}
-		}
-		.typewriter {
-			font-family: 'Courier New', monospace;
-			font-size: 1.5rem;
-			color: #ff4d4d; /* Adjust to match your theme */
-			border-right: 0.15em solid #ff4d4d; /* Blinking cursor effect */
-			overflow: hidden;
-			display: inline-block;
-			animation: typing 2.0s steps(40, end), blink-caret 0.75s step-end infinite;
-			white-space: nowrap; /* Doesn't wrapping of text */
-			
-		}
-
-
-		@keyframes typing {
-			from { width: 0; }
-			to { width: 100%; }
-		}
-
-		@keyframes blink-caret {
-			from, to { border-color: transparent; }
-			50% { border-color: #ff4d4d; }
-		}
-
-
+        .mission-text { font-family: 'Courier New', monospace; }
+        .red-glow { text-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+        .slide-in { transform: translateX(-100%); transition: transform 0.3s ease-out; }
+        .slide-in.active { transform: translateX(0); }
+        .nav-overlay { background: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease-out; pointer-events: none; }
+        .nav-overlay.active { opacity: 1; pointer-events: auto; }
     </style>
 </head>
 <body class="bg-black text-gray-100">
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-red-600 opacity-5"></div>
-        <div class="container mx-auto px-4 text-center z-10">
-            <h1 class="mission-text text-4xl md:text-6xl font-bold mb-4 red-glow">
-                Architecture Summit 2025
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 text-red-500">Mission Possible: Bold Simplicity</p>
-            <div class="text-2xl mission-text">
-                <div class="mb-4">February 5-6th, 2025</div>
-                <div>Centene Campus - Clayton, MO</div>
-				<p><br>
-				<div class="blinking-cursor-container">
-					<div class="typewriter">
-						<span>INTERCEPTED MESSAGE BELOW...</span>
-					</div>
-					
-				</div>
-				</p>
-            </div>
-        </div>
-    </header>
-
     <!-- Navigation -->
-    <nav class="sticky top-0 bg-black bg-opacity-90 border-b border-red-800 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-center space-x-6 py-4 overflow-x-auto">
-                <a href="#mission-brief" class="hover:text-red-500 transition-colors whitespace-nowrap">Brief</a>
-                <a href="#schedule" class="hover:text-red-500 transition-colors whitespace-nowrap">Schedule</a>
-                <a href="#location" class="hover:text-red-500 transition-colors whitespace-nowrap">Location</a>
-                <a href="#parking" class="hover:text-red-500 transition-colors whitespace-nowrap">Parking</a>
-                <a href="#access" class="hover:text-red-500 transition-colors whitespace-nowrap">Access</a>
-                <a href="#protocol" class="hover:text-red-500 transition-colors whitespace-nowrap">Protocol</a>
-                <a href="#vendors" class="hover:text-red-500 transition-colors whitespace-nowrap">Vendors</a>
+    <nav class="fixed top-0 w-full bg-black border-b border-red-800 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <button onclick="toggleNav()" class="text-red-500 hover:text-red-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+                <h1 class="mission-text text-xl font-bold red-glow">Arch Summit 2025</h1>
+                <div class="w-6"></div>
             </div>
         </div>
     </nav>
 
-    <!-- Mission Brief Section -->
-    <section id="mission-brief" class="py-20 section-fade">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Mission Brief</h2>
-            <p class="max-w-3xl mx-auto text-lg text-gray-300">
-                Join elite architects from across Centene for two days of intelligence sharing,
-                strategic planning, and network infiltration techniques. This mission will focus on modern data
-                architecture challenges and solutions.
-            </p>
+    <!-- Side Navigation -->
+    <div class="nav-overlay fixed inset-0 z-40" onclick="toggleNav()"></div>
+    <div class="slide-in fixed left-0 top-0 h-full w-64 bg-gray-900 z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="mission-text text-red-500 text-lg mb-8">Mission Details</div>
+            <div class="space-y-4">
+                <a href="#mission-brief" class="block text-gray-300 hover:text-red-500 mission-text">Brief</a>
+                <a href="#location" class="block text-gray-300 hover:text-red-500 mission-text">Location</a>
+                <a href="#parking" class="block text-gray-300 hover:text-red-500 mission-text">Parking</a>
+                <a href="#access" class="block text-gray-300 hover:text-red-500 mission-text">Access</a>
+                <a href="#protocol" class="block text-gray-300 hover:text-red-500 mission-text">Protocol</a>
+                
+            </div>
+            <div class="mt-8 p-4 border border-red-800 rounded">
+                <p class="mission-text text-sm text-gray-400">
+                    February 5-6th, 2025<br>
+                    Centene Campus - Clayton, MO
+                </p>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Schedule Section -->
-    <section id="schedule" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Mission Schedule</h2>
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-black p-6 rounded-lg text-center">
-                    <div class="mission-text text-red-500 text-xl mb-4">
-                        ⚠ CLASSIFIED INFORMATION ⚠
+    <!-- Main Content -->
+    <main class="pt-16">
+        <!-- Schedule Section -->
+        <section class="min-h-screen bg-gray-100 p-4">
+            <div class="container mx-auto">
+                <!-- Day Selection -->
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button onclick="showDay('day1')" id="day1-btn" 
+                        class="px-6 py-2 rounded bg-red-600 text-white mission-text hover:bg-red-700 transition-colors">
+                        Day 1: Wednesday
+                    </button>
+                    <button onclick="showDay('day2')" id="day2-btn"
+                        class="px-6 py-2 rounded bg-gray-800 text-gray-300 mission-text hover:bg-gray-700 transition-colors">
+                        Day 2: Thursday
+                    </button>
+                </div>
+
+                <!-- Schedule Cards -->
+                <div id="day1-schedule" class="max-w-3xl mx-auto space-y-6">
+                    <!-- Day 1 Schedule -->
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">0900 - 0910 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">10m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Opening</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handler:</span> Mike Weiler</p>
+                            <p><span class="text-red-500">Mission:</span> Welcome and housekeeping items</p>
+                        </div>
                     </div>
-                    <p class="text-gray-300">
-                        Mission schedule details are currently being decoded.<br>
-                        Operatives will be briefed on the complete schedule shortly.
-                    </p>
-                    <div class="mt-6 p-4 border border-red-800 rounded-lg inline-block">
-                        <p class="mission-text text-sm">
-                            Status: Pending Clearance<br>
-                            ETA: TBD
-                        </p>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">0910 - 0955 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">45m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Day 1 Kickoff</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Scott Wilton, Andrew Sorenson, Josh Eldridge</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">955 - 1010 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">15m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1010 - 1055 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">45m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">DnA State of the Union Address</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Scott Wilton, Wendy Batchelder, Andrew Sorenson, Josh Eldridge</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1055 - 1110 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">15m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1110 - 1145 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">35m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">TSI - Teradata to Snowflake Implementation</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Geoff Volpe, Lance Farris, Dave Nichols</p>
+                            <p><span class="text-red-500">Mission:</span> Update on the TSI Effort related to in-flight activities</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1145 - 1215 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">30m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Lunch</h3>
+                        <div class="space-y-1 text-gray-300">
+                            <p><span class="text-purple-400">Location:</span> Hallway Outside Room</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1215 - 1245 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">30m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Kahoot Trivia Game</h3>
+                        <div class="space-y-1 text-gray-300">
+                            <p><span class="text-purple-400">Location:</span> Main Room</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1245 - 1325 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">40m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Information Architecture: Foundational Updates</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Billy Holt, Scott Wilton</p>
+                        </div>
+                    </div>
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1330 - 1415 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">45m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Data Sourcing: Enabling our Data Pipeline</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Scott Ryan, Priya Anil, Kris Steichen, Gary Stiehr, Alex Adam</p>
+                            <p><span class="text-red-500">Mission:</span> Recommended patterns to hydrate the EDH</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1415 - 1430 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">15m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1530 - 1605 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">35m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Technical Breakouts - Session 1</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handler:</span> Jon Phipps</p>
+                            <p><span class="text-red-500">Breakouts:</span></p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Data Governance (Dan Hagen, Mark Weaver)</li>
+                                <li>BI COE (Neil)</li>
+                                <li>Data Reliability Engineering (Gary Stiehr)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1610 - 1645 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">35m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Technical Breakouts - Session 2</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handler:</span> Jon Phipps</p>
+                            <p><span class="text-red-500">Breakouts:</span></p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Data Governance (Dan Hagen, Mark Weaver)</li>
+                                <li>BI COE (Neil)</li>
+                                <li>Data Reliability Engineering (Gary Stiehr)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1645 - 1700 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">15m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Closing / Day 1 Wrap-up</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Mission:</span> Day 1 Wrap Up</p>
+                        </div>
+                    </div> 
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1600 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">1.5h</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Happy Hour</h3>
+                        <div class="space-y-1 text-gray-300">
+                            <p><span class="text-purple-400">Location:</span> Mezzanine, Building B</p>
+                        </div>
+                    </div> 
+                </div>
+
+                <!--day 2 schedule -->
+                <div id="day2-schedule" class="max-w-3xl mx-auto space-y-6 hidden">
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">0900 - 0910 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">10m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Intro - Opening</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handler:</span> Mike W</p>
+                            <p><span class="text-red-500">Mission:</span> Welcome to Day 2 and housekeeping items</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">0910 - 1015 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">65m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">DnA Core Platforms - Top 10 New Features</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Jim, Platform Owner(s) + Strategy Archs, Srinivas</p>
+                            <p><span class="text-red-500">Mission:</span> Most Devastating Gadgets - Roundup of new features and capabilities</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1015 - 1030 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">15m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1030 - 1100 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">30m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">The Past, Present and Future of AI at Centene</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Gary S, Barrett Foat</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1100 - 1115 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">15m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1115 - 1145 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">30m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Azure Fabric and Power BI</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Hussein, Curtis Rushing, Pete Foszpanczyk</p>
+                            <p><span class="text-red-500">Mission:</span> Discuss Azure Fabric and Power BI POC</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1145 - 1215 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">30m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Lunch</h3>
+                        <div class="space-y-1 text-gray-300">
+                            <p><span class="text-purple-400">Location:</span> Hallway Outside of Main Room</p>
+                        </div>
+                    </div>
+                    <div class="bg-purple-900 rounded-lg p-4 border border-purple-800 hover:border-purple-600 transition-colors max-w-lg mx-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="mission-text text-xl text-purple-400">1215 - 1245  CST</div>
+                            <div class="text-sm text-gray-400 mission-text">30m</div>
+                        </div>
+                        <h3 class="text-lg mb-2 font-bold text-white">Kahoot Trivia Game</h3>
+                        <div class="space-y-1 text-gray-300">
+                            <p><span class="text-purple-400">Location:</span> Main Room</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1215 - 1245 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">30m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Group Activity</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Mission:</span> Kahoot Trivia Game</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1250 - 1325 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">35m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">D&A Solution Architecture Program - 2025</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Scott R, Central Solution Architecture Team</p>
+                            <p><span class="text-red-500">Mission:</span> Review of the 2025 SA Program + Guardrails + Service Design + Partnerships</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1325 - 1345 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">20m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Your mission, should you accept...</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Scott R, Jamie Oswald, Panos Kourtidis, Pramod Bhosekar, Dan Hagen</p>
+                            <p><span class="text-red-500">Mission:</span> Federated Solution Architecture Panel Discussion</p>
+                        </div>
+                    </div>
+                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="mission-text text-xl text-red-500">1350 - 1430 CST</div>
+                            <div class="text-sm text-gray-400 mission-text">40m</div>
+                        </div>
+                        <h3 class="text-xl mb-3 font-bold text-white">Call to Action!</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-red-500">Handlers:</span> Billy Holt</p>
+                            <p><span class="text-red-500">Mission:</span> Recap, Key Take-Aways, Steps to Success.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+         <!-- Mission Brief Section -->
+         <section id="mission-brief" class="min-h-screen bg-black p-4">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-2xl text-red-500 mission-text mb-6">Mission Brief</h2>
+                <div class="bg-black rounded-lg p-6 border border-gray-800">
+                    <p class="text-gray-300 mb-4">Join elite architects from across Centene for two days of intelligence sharing, strategic planning, and network infiltration techniques.</p>
+                    <p class="text-gray-300">This mission will focus on modern data architecture challenges and solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="min-h-screen bg-gray-900 p-4">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-2xl text-red-500 mission-text mb-6">Location</h2>
+                <div class="bg-black rounded-lg p-6 border border-gray-800">
+                    <div class="space-y-4 text-gray-300">
+                        <p><span class="text-red-500">Base Location:</span> Building B</p>
+                        <p><span class="text-red-500">Coordinates:</span> 7700 Forsyth Blvd</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Location Section -->
-    <section id="location" class="py-20 section-fade">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Base of Operations</h2>
-            <div class="map-grid">
-                <div class="bg-black p-6 rounded-lg">
-                    <h3 class="text-xl mb-4 mission-text text-red-500">Building A</h3>
-                    <p class="text-gray-300">7711 Carondelet Ave</p>
-                </div>
-                <div class="bg-black p-6 rounded-lg">
-                    <h3 class="text-xl mb-4 mission-text text-red-500">Building B</h3>
-                    <p class="text-gray-300">7700 Forsyth Blvd</p>
-                </div>
-                <div class="bg-black p-6 rounded-lg">
-                    <h3 class="text-xl mb-4 mission-text text-red-500">Building C</h3>
-                    <p class="text-gray-300">7676 Forsyth Blvd</p>
-                </div>
-                <div class="bg-black p-6 rounded-lg">
-                    <h3 class="text-xl mb-4 mission-text text-red-500">Building U</h3>
-                    <p class="text-gray-300">7501 Maryland Ave</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Parking Section -->
-    <section id="parking" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Vehicle Storage Facilities</h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                    <div class="bg-black p-6 rounded-lg">
-                        <h3 class="text-xl mb-4 mission-text">Centene Parking</h3>
-                        <ul class="space-y-2 text-gray-300">
-                            <li>• Parking 1 – 7733 Carondelet Ave</li>
-                            <li>• Parking 2 – 7711 Carondelet Ave</li>
-                            <li>• Parking 3 – 7700 Forsyth Blvd</li>
-                            <li>• Parking 4 – 7620 Forsyth Blvd</li>
+        <!-- Parking Section -->
+        <section id="parking" class="min-h-screen bg-black p-4">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-2xl text-red-500 mission-text mb-6">Parking</h2>
+                <div class="bg-black rounded-lg p-6 border border-gray-800">
+                    <div class="space-y-4 text-gray-300">
+                        <h3 class="text-xl text-red-500 mb-4">Centene Secured Facilities</h3>
+                        <ul class="list-disc pl-6 mb-6">
+                            <li>Parking 1 – 7733 Carondelet Ave</li>
+                            <li>Parking 2 – 7711 Carondelet Ave</li>
+                            <li>Parking 3 – 7700 Forsyth Blvd</li>
+                            <li>Parking 4 – 7620 Forsyth Blvd</li>
+                        </ul>
+                        
+                        <h3 class="text-xl text-red-500 mb-4">Civilian Parking</h3>
+                        <p class="mb-6">7550 Forsyth Blvd</p>
+                        
+                        <h3 class="text-xl text-red-500 mb-4">Critical Intel</h3>
+                        <ul class="list-disc pl-6">
+                            <li>ADA Accessible: Available in Parking 3 and 4</li>
+                            <li>Validate parking tickets at Security Desk (Building B or C)</li>
                         </ul>
                     </div>
-                    <div class="bg-black p-6 rounded-lg">
-                        <h3 class="text-xl mb-4 mission-text">Public Parking</h3>
-                        <p class="text-gray-300">7550 Forsyth Blvd</p>
-                        <div class="mt-4">
-                            <h4 class="text-lg mission-text mb-2">Important Intel</h4>
-                            <ul class="text-gray-300 space-y-2">
-                                <li>• ADA Accessible: Available in Parking 3 and 4</li>
-                                <li>• Validate parking tickets at Security Desk (Building B or C)</li>
-                            </ul>
-                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Access Section -->
+        <section id="access" class="min-h-screen bg-gray-900 p-4">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-2xl text-red-500 mission-text mb-6">Access</h2>
+                <div class="bg-black rounded-lg p-6 border border-gray-800">
+                    <div class="space-y-4 text-gray-300">
+                        <p><span class="text-red-500">Requirements:</span> Corporate badge required for all areas</p>
+                        <p><span class="text-red-500">Registration:</span> Check-in at security desk required</p>
+                        <p><span class="text-red-500">Visitors:</span> Must be pre-registered and escorted</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Access Section -->
-    <section id="access" class="py-20 section-fade">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Network Access Protocols</h2>
-            
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-gray-900 p-6 rounded-lg mb-8">
-                    <h3 class="text-xl mb-4 mission-text text-red-500">WiFi Connection Procedure</h3>
-                    <ol class="space-y-4 text-gray-300">
-                        <li class="flex items-start">
-                            <span class="mr-4">1.</span>
-                            Connect to the CNC-Guest Wi-Fi network
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-4">2.</span>
-                            <div>
-                                <p class="font-bold mb-2">Existing CNC-Guest Account:</p>
-                                <ul class="list-disc ml-8">
-                                    <li>Enter your username and password</li>
-                                    <li>Accept the terms and conditions</li>
-                                    <li>Click the Sign On button</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="mr-4">3.</span>
-                            <div>
-                                <p class="font-bold mb-2">New Account Registration:</p>
-                                <ul class="list-disc ml-8">
-                                    <li>Click "Or register for guest access"</li>
-                                    <li>Complete all required fields</li>
-                                    <li>Enter your email for "person being visited"</li>
-                                    <li>Click Register</li>
-                                    <li>Use the credentials sent to your mobile device</li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
-
-                <div class="bg-gray-900 p-6 rounded-lg">
-                    <h3 class="text-xl mb-4 mission-text text-red-500">Emergency Protocols</h3>
-                    <p class="text-gray-300">
-                        For immediate assistance, contact Global Security Operations Center:<br>
-                        <span class="text-red-500 font-bold">314-445-0911</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Protocol Section -->
-    <section id="protocol" class="py-20 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Operative Dress Protocol</h2>
-            
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-black p-6 rounded-lg">
-                    <h3 class="text-xl mb-4 mission-text">Smart Casual Field Attire</h3>
-                    <p class="text-gray-300 mb-4">
-                        Operatives should maintain a clean, neat appearance while preserving mobility and comfort.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
+        <!-- Protocol Section -->
+        <section id="protocol" class="min-h-screen bg-black p-4">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-2xl text-red-500 mission-text mb-6">Operative Protocols</h2>
+                <div class="bg-black rounded-lg p-6 border border-gray-800">
+                    <div class="space-y-8 text-gray-300">
                         <div>
-                            <h4 class="mission-text mb-2">Approved Attire</h4>
-                            <ul class="space-y-2">
-                                <li>• Dress pants, slacks, jeans</li>
-                                <li>• Dress shirts, button-down shirts</li>
-                                <li>• Blouses, polo shirts</li>
-                                <li>• Mid-length skirts & dresses</li>
-                                <li>• Sweaters, blazers</li>
-                                <li>• Loafers, flats, sneakers</li>
+                            <h3 class="text-xl text-red-500 mb-4">Emergency Protocols</h3>
+                            <p>For immediate assistance, contact Global Security Operations Center: <span class="text-red-500">314-445-0911</span></p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl text-red-500 mb-4">Field Attire Protocol</h3>
+                            <p class="mb-4">Smart Casual Field Attire. Operatives should maintain a clean, neat appearance while preserving mobility and comfort.</p>
+                            
+                            <h4 class="text-lg text-red-400 mb-2">Approved Tactical Wear</h4>
+                            <ul class="list-disc pl-6">
+                                <li>Dress pants, slacks, jeans</li>
+                                <li>Dress shirts, button-down shirts</li>
+                                <li>Blouses, polo shirts</li>
+                                <li>Mid-length skirts & dresses</li>
+                                <li>Sweaters, blazers</li>
+                                <li>Loafers, flats, sneakers</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Vendors Section -->
-    <section id="vendors" class="py-20 section-fade">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl mission-text mb-8 text-center red-glow">Allied Organizations</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 p-6 rounded-lg hover-scale">
-                    <div class="h-32 bg-gray-800 rounded-lg mb-4 flex items-center justify-center">
-                        <p class="mission-text text-gray-600">Clearance Pending</p>
-                    </div>
-                    <p class="text-center mission-text text-sm">Agent Status: Unconfirmed</p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover-scale">
-                    <div class="h-32 bg-gray-800 rounded-lg mb-4 flex items-center justify-center">
-                        <p class="mission-text text-gray-600">Clearance Pending</p>
-                    </div>
-                    <p class="text-center mission-text text-sm">Agent Status: Unconfirmed</p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover-scale">
-                    <div class="h-32 bg-gray-800 rounded-lg mb-4 flex items-center justify-center">
-                        <p class="mission-text text-gray-600">Clearance Pending</p>
-                    </div>
-                    <p class="text-center mission-text text-sm">Agent Status: Unconfirmed</p>
-                </div>
-            </div>
+    <footer class="bg-black py-4 border-t border-red-800">
+        <div class="container mx-auto text-center">
+            <p class="mission-text text-red-500 animate-pulse">This message will self-destruct in 5 seconds...</p>
         </div>
-    </section>
+     </footer>
 
-    <!-- Footer -->
-    <footer class="bg-black py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mission-text text-sm text-gray-500">
-                This message will self-destruct in 5 seconds...
-            </p>
-        </div>
-    </footer>
+    <script>
+        function toggleNav() {
+            document.querySelector('.slide-in').classList.toggle('active');
+            document.querySelector('.nav-overlay').classList.toggle('active');
+        }
+
+        function showDay(day) {
+            const day1Schedule = document.getElementById('day1-schedule');
+            const day2Schedule = document.getElementById('day2-schedule');
+            const day1Btn = document.getElementById('day1-btn');
+            const day2Btn = document.getElementById('day2-btn');
+
+            if (day === 'day1') {
+                day1Schedule.classList.remove('hidden');
+                day2Schedule.classList.add('hidden');
+                day1Btn.classList.remove('bg-gray-800', 'text-gray-300');
+                day1Btn.classList.add('bg-red-600', 'text-white');
+                day2Btn.classList.remove('bg-red-600', 'text-white');
+                day2Btn.classList.add('bg-gray-800', 'text-gray-300');
+            } else {
+                day2Schedule.classList.remove('hidden');
+                day1Schedule.classList.add('hidden');
+                day2Btn.classList.remove('bg-gray-800', 'text-gray-300');
+                day2Btn.classList.add('bg-red-600', 'text-white');
+                day1Btn.classList.remove('bg-red-600', 'text-white');
+                day1Btn.classList.add('bg-gray-800', 'text-gray-300');
+            }
+        }
+    </script>
 </body>
 </html>
