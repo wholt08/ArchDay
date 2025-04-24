@@ -12,517 +12,2062 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arch Summit 2025</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <title>Architecture Day & BI Summit | Data & AI: Intelligence Powering Centene</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .mission-text { font-family: 'Courier New', monospace; }
-        .red-glow { text-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
-        .slide-in { transform: translateX(-100%); transition: transform 0.3s ease-out; }
-        .slide-in.active { transform: translateX(0); }
-        .nav-overlay { background: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease-out; pointer-events: none; }
-        .nav-overlay.active { opacity: 1; pointer-events: auto; }
-    </style>
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="manifest" href="/site.webmanifest">
-</head>
-<body class="bg-black text-gray-100">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-black border-b border-red-800 z-50">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <button onclick="toggleNav()" class="text-red-500 hover:text-red-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-                <h1 class="mission-text text-xl font-bold red-glow">ARCH SUMMIT:25</h1>
-                <div class="w-6"></div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Side Navigation -->
-    <div class="nav-overlay fixed inset-0 z-40" onclick="toggleNav()"></div>
-    <div class="slide-in fixed left-0 top-0 h-full w-64 bg-gray-900 z-50 overflow-y-auto">
-        <div class="p-6">
-            <div class="mission-text text-red-500 text-lg mb-8">Mission Details</div>
-            <div class="space-y-4">
-                <a href="#" class="block text-gray-300 hover:text-red-500 mission-text">Schedule</a>
-                <a href="#mission-brief" class="block text-gray-300 hover:text-red-500 mission-text">Brief</a>
-                <a href="#location" class="block text-gray-300 hover:text-red-500 mission-text">Location</a>
-                <a href="#parking" class="block text-gray-300 hover:text-red-500 mission-text">Parking</a>
-                <a href="#protocol" class="block text-gray-300 hover:text-red-500 mission-text">Protocol</a>
-                <a href="#photo-upload" class="block text-gray-300 hover:text-red-500 mission-text">Share Your Photos</a>
-                
-            </div>
-            <div class="mt-8 p-4 border border-red-800 rounded">
-                <p class="mission-text text-sm text-gray-400">
-                    February 5-6th, 2025<br>
-                    Centene Campus - Clayton, MO
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="pt-16">
-        <!-- Schedule Section -->
-        <section id="schedule" class="min-h-screen bg-gray-800 p-4">
-            <div class="container mx-auto">
-                <!-- Day Selection -->
-                <div class="flex justify-center space-x-4 mb-8">
-                    <button onclick="showDay('day1')" id="day1-btn"
-                            class="px-6 py-2 rounded bg-red-600 text-white mission-text hover:bg-red-700 transition-colors">
-                        Day 1: Wednesday
-                    </button>
-                    <button onclick="showDay('day2')" id="day2-btn"
-                            class="px-6 py-2 rounded bg-gray-800 text-gray-300 mission-text hover:bg-gray-700 transition-colors">
-                        Day 2: Thursday
-                    </button>
-                </div>
-
-                <!-- Schedule Cards -->
-                <div id="day1-schedule" class="max-w-3xl mx-auto space-y-6">
-                    <!-- Day 1 Schedule -->
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">0900 - 0910 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">10m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Intro - Opening</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handler:</span> Mike Weiler</p>
-                            <p><span class="text-red-500">Mission:</span> Welcome and housekeeping items</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">0910 - 0955 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">45m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Day 1 Kickoff</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Scott Wilton, Andrew Sorenson, Josh Eldridge</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">955 - 1010 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">15m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1010 - 1055 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">45m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Information Architecture: Foundational Updates</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Billy Holt, Scott Wilton</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">1055 - 1110 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">15m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1110 - 1145 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">35m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">TSI - Teradata to Snowflake Implementation</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Lance Farris, Dave Nichols</p>
-                            <p><span class="text-red-500">Mission:</span> Update on the TSI Effort related to in-flight activities</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">1145 - 1215 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">30m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Lunch</h3>
-                        <div class="space-y-1 text-gray-300">
-                            <p><span class="text-red-500">Location:</span> Hallway Outside the Main Room</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">1215 - 1245 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">30m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Kahoot Trivia Game</h3>
-                        <div class="space-y-1 text-gray-300">
-                            <p><span class="text-red-500">Location:</span> Main Room</p>
-                        </div>
-                    </div>
-
-                    
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1245 - 1330 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">45m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Data Sourcing: Enabling our Data Pipeline</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Priya Anil, Kris Steichen, Gary Stiehr, Alex Adam</p>
-                            <p><span class="text-red-500">Mission:</span> Recommended patterns to hydrate the EDH</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1335 - 1410 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">35m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Data Governance</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Dan Hagen, Mark Weaver, Lesley Clark, Alex Pruett</p>
-                            <!--<p><span class="text-red-500">Mission:</span> Recommended patterns to hydrate the EDH</p>-->
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">1410 - 1430 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">20m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1430 - 1505 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">35m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">BI COE</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Neil Schafer</p>
-                            <!--<p><span class="text-red-500">Mission:</span> Recommended patterns to hydrate the EDH</p>-->
-                        </div>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1510 - 1545 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">35m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Data Reliability Engineering</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Lakshmi Sakkaraisamy</p>
-                            <!--<p><span class="text-red-500">Mission:</span> Recommended patterns to hydrate the EDH</p>-->
-                        </div>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1545 - 1600 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">15m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Closing / Day 1 Wrap-up</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Mission:</span> Day 1 Wrap Up</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-gray-400">1600 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">1.5h</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Happy Hour</h3>
-                        <div class="space-y-1 text-gray-300">
-                            <p><span class="text-gray-400">Location:</span> Mezzanine, Building C</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!--day 2 schedule -->
-                <div id="day2-schedule" class="max-w-3xl mx-auto space-y-6 hidden">
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">0900 - 0910 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">10m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Intro - Opening</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handler:</span> Mike Weiler</p>
-                            <p><span class="text-red-500">Mission:</span> Welcome to Day 2 and housekeeping items</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">0910 - 1015 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">65m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">DnA Core Platforms - Top 10 New Features</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Jim, Platform Owner(s) + Strategy Archs</p>
-                            <p><span class="text-red-500">Mission:</span> Round up of new features and capabilities of our strategic platforms and tools.</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">1015 - 1030 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">15m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
-                    </div>
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1030 - 1100 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">30m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">The Past, Present and Future of AI at Centene</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Barrett Foat, Lucy Nwosu</p>
-                        </div>
-                    </div>
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">1100 - 1115 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">15m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Short Break</h3>
-                    </div>
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1115 - 1145 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">30m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Azure Fabric and Power BI</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Curtis Rushing, Pete Foszpanczyk</p>
-                            <p><span class="text-red-500">Mission:</span> Discuss Azure Fabric and Power BI POC</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1145 - 1215 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">30m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">DnA State of the Union Address</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Wendy Batchelder</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-900 rounded-lg p-4 border border-gray-800 hover:border-red-600 transition-colors max-w-lg mx-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <div class="mission-text text-xl text-red-500">1215 - 1245 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">30m</div>
-                        </div>
-                        <h3 class="text-lg mb-2 font-bold text-white">Lunch</h3>
-                        <div class="space-y-1 text-gray-300">
-                            <p><span class="text-red-500">Location:</span> Hallway Outside of Main Room</p>
-                        </div>
-                    </div>
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1245 - 1320 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">35m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">D&A Solution Architecture Program - 2025</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Scott R, Central Solution Architecture Team</p>
-                            <p><span class="text-red-500">Mission:</span> Review of the 2025 SA Program + Guardrails + Service Design + Partnerships</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1320 - 1345 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">25m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Your mission, should you accept...</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Scott R, Jamie Oswald, Panos Kourtidis, Pramod Bhosekar, Dan Hagen</p>
-                            <p><span class="text-red-500">Mission:</span> Federated Solution Architecture Panel Discussion</p>
-                        </div>
-                    </div>
-                    <div class="bg-black rounded-lg p-6 border border-gray-800 hover:border-red-800 transition-colors">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="mission-text text-xl text-red-500">1355 - 1430 CST</div>
-                            <div class="text-sm text-gray-400 mission-text">40m</div>
-                        </div>
-                        <h3 class="text-xl mb-3 font-bold text-white">Call to Action!</h3>
-                        <div class="space-y-2 text-gray-300">
-                            <p><span class="text-red-500">Handlers:</span> Billy Holt</p>
-                            <p><span class="text-red-500">Mission:</span> Recap, Key Take-Aways, Steps to Success.</p>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </section>
-        <!-- Mission Brief Section -->
-        <section id="mission-brief" class="min-h-[50vh] bg-black p-4">
-            <div class="container mx-auto max-w-3xl">
-                <h2 class="text-2xl text-red-500 mission-text mb-6">Mission Brief</h2>
-                <div class="bg-black rounded-lg p-6 border border-gray-800">
-                    <p class="text-gray-300 mb-4">Join elite architects from across Centene for two days of intelligence sharing, strategic planning, and network infiltration techniques.</p>
-                    <p class="text-gray-300">This mission will focus on modern data architecture challenges and solutions.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Location Section -->
-        <section id="location" class="min-h-[50vh] bg-gray-900 p-4">
-            <div class="container mx-auto max-w-3xl">
-                <h2 class="text-2xl text-red-500 mission-text mb-6">Location</h2>
-                <div class="bg-black rounded-lg p-6 border border-gray-800">
-                    <div class="space-y-4 text-gray-300">
-                        <p><span class="text-red-500">Base Location:</span> Building C</p>
-                        <p><span class="text-red-500">Coordinates:</span> 7676 Forsyth Blvd, Clayton, MO</p>
-                        <p><span class="text-red-500">Main Rooms:</span>Building C - MPR A/B/C</p>
-                        <p><span class="text-red-500">Breakout Rooms:</span>Building C - MPR A/B/C & Building B - MPR C</p>
-                        <img src="images/result.png" alt="Location Map" class="w-full h-auto mt-4 rounded-lg" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Parking Section -->
-        <section id="parking" class="min-h-[50vh] bg-black p-4">
-            <div class="container mx-auto max-w-3xl">
-                <h2 class="text-2xl text-red-500 mission-text mb-6">Parking</h2>
-                <div class="bg-black rounded-lg p-6 border border-gray-800">
-                    <div class="space-y-4 text-gray-300">
-                        <h3 class="text-xl text-red-500 mb-4">Centene Secured Facilities</h3>
-                        <ul class="list-disc pl-6 mb-6">
-                            <li>Parking 1 – 7733 Carondelet Ave</li>
-                            <li>Parking 2 – 7711 Carondelet Ave</li>
-                            <li>Parking 3 – 7700 Forsyth Blvd</li>
-                            <li>Parking 4 – 7620 Forsyth Blvd</li>
-                        </ul>
-
-                        <h3 class="text-xl text-red-500 mb-4">Civilian Parking</h3>
-                        <p class="mb-6">7550 Forsyth Blvd</p>
-
-                        <h3 class="text-xl text-red-500 mb-4">Critical Intel</h3>
-                        <ul class="list-disc pl-6">
-                            <li>ADA Accessible: Available in Parking 3 and 4</li>
-                            <li>Validate parking tickets at Security Desk (Building B or C)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Protocol Section -->
-        <section id="protocol" class="min-h-[50vh] bg-black p-4">
-            <div class="container mx-auto max-w-3xl">
-                <h2 class="text-2xl text-red-500 mission-text mb-6">Operative Protocols</h2>
-                <div class="bg-black rounded-lg p-6 border border-gray-800">
-                    <div class="space-y-8 text-gray-300">
-                        <div>
-                            <h3 class="text-xl text-red-500 mb-4">Emergency Protocols</h3>
-                            <p>For immediate assistance, contact Global Security Operations Center: <span class="text-red-500">314-445-0911</span></p>
-                        </div>
-
-                        <div>
-                            <h3 class="text-xl text-red-500 mb-4">Field Attire Protocol</h3>
-                            <p class="mb-4">Smart Casual Field Attire. Operatives should maintain a clean, neat appearance while preserving mobility and comfort.</p>
-
-                            <h4 class="text-lg text-red-500 mb-2">Approved Tactical Wear</h4>
-                            <ul class="list-disc pl-6">
-                                <li>Dress pants, slacks, jeans</li>
-                                <li>Dress shirts, button-down shirts</li>
-                                <li>Blouses, polo shirts</li>
-                                <li>Mid-length skirts & dresses</li>
-                                <li>Sweaters, blazers</li>
-                                <li>Loafers, flats, sneakers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
-
-    <!-- Photo Upload Instructions Section -->
-    <section id="photo-upload" class="min-h-[50vh] bg-black p-4">
-        <div class="container mx-auto max-w-3xl">
-            <h2 class="text-2xl text-red-500 mission-text mb-6">Share Your Conference Photos</h2>
-            <div class="bg-black rounded-lg p-6 border border-gray-800">
-                <div class="space-y-8 text-gray-300">
-                    <div>
-                        <h3 class="text-xl text-red-500 mb-4">Teams Channel Upload</h3>
-                        <ol class="list-decimal pl-6 space-y-2">
-                            <li>Open the Data & Analytics Architecture Events Team Channel</li>
-                            <li>Select the "New Post" button in the bottom right corner</li>
-                            <li>Add a title to your post and in the post, select the [+] button to include media</li>
-                            <li>Select "Attach a file"</li>
-                            <li>Click the Media button to include photos from your camera roll or take a new photo</li>
-                            <li>When you're ready, click send in the upper right coner to share to the community</li>
-                        </ol>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl text-red-500 mb-4">Cloud Library Upload</h3>
-                        <ol class="list-decimal pl-6 space-y-2">
-                            <li><a href="https://app.kululu.com/y8z52u" target="_blank"  class="text-red-500 hover:text-red-400 underline">Upload your photos to Kululu</a></li>
-                            <li>Select to upload Photos or Videos</li>
-                            <li>Upload photos from your mobile Photo Library or take a photo directly</li>
-                            <li>Click "Upload Photos"</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    </main>
-
-    <footer class="bg-black py-4 border-t border-red-800">
-        <div class="container mx-auto text-center">
-            <p class="mission-text text-red-500 animate-pulse">This message will self-destruct in 5 seconds...</p>
-        </div>
-     </footer>
-
-    <script>
-        function toggleNav() {
-            document.querySelector('.slide-in').classList.toggle('active');
-            document.querySelector('.nav-overlay').classList.toggle('active');
+        :root {
+            --primary: #4a6bff;
+            --primary-dark: #3a56d4;
+            --secondary: #7e57c2;
+            --accent: #5e35b1;
+            --light: #f5f7ff;
+            --light-alt: linear-gradient(135deg, #f5f7ff 0%, #e8eeff 100%);
+            --dark: #1a1a2e;
+            --gray: #e0e0e0;
+            --text: #333344;
         }
 
-        function showDay(day) {
-            const day1Schedule = document.getElementById('day1-schedule');
-            const day2Schedule = document.getElementById('day2-schedule');
-            const day1Btn = document.getElementById('day1-btn');
-            const day2Btn = document.getElementById('day2-btn');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            if (day === 'day1') {
-                day1Schedule.classList.remove('hidden');
-                day2Schedule.classList.add('hidden');
-                day1Btn.classList.remove('bg-gray-800', 'text-gray-300');
-                day1Btn.classList.add('bg-red-600', 'text-white');
-                day2Btn.classList.remove('bg-red-600', 'text-white');
-                day2Btn.classList.add('bg-gray-800', 'text-gray-300');
-            } else {
-                day2Schedule.classList.remove('hidden');
-                day1Schedule.classList.add('hidden');
-                day2Btn.classList.remove('bg-gray-800', 'text-gray-300');
-                day2Btn.classList.add('bg-red-600', 'text-white');
-                day1Btn.classList.remove('bg-red-600', 'text-white');
-                day1Btn.classList.add('bg-gray-800', 'text-gray-300');
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+            text-decoration: underline;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Add an ID selector for potential specific overrides or JS */
+        #hero {
+            /* Add top padding to push content below the fixed header */
+            /* Adjust 80px based on your actual header height */
+            padding-top: 80px;
+        }
+
+        .hero-section {
+            position: relative; /* Needed if using pseudo-elements for overlay, good practice anyway */
+            min-height: 550px; /* Ensure enough height */
+            display: flex; /* Use flexbox for vertical alignment */
+            align-items: center; /* Vertically center the content */
+            justify-content: center; /* Horizontally center the container */
+            text-align: center; /* Center text within the content block */
+            color: white; /* Default text color for the hero */
+            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.85)),
+                        url('aibrain.jpg'); /* Darker gradient overlay first, then image */
+            background-size: cover; /* Cover the entire section */
+            background-position: center center; /* Center the image */
+            background-repeat: no-repeat;
+            overflow: hidden; /* Prevent potential overflow issues */
+        }
+
+        .hero-content {
+            max-width: 800px; /* Limit content width */
+            padding: 2rem; /* Add padding around the content */
+            /* Optional: Add a very subtle background for extra text contrast if needed */
+            /* background-color: rgba(0, 0, 0, 0.1); */
+            border-radius: 8px; /* Optional: slightly rounded corners */
+            /* Ensure visibility - these should be default, but explicit doesn't hurt */
+            opacity: 1;
+            transform: none;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem; /* Adjust as needed */
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem; /* Adjust as needed */
+            margin-bottom: 1.5rem;
+            color: var(--gray); /* Use theme variable */
+            font-weight: 400;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem; /* Adjust as needed */
+            margin-bottom: 2rem;
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem; /* Space between date and location */
+            margin-bottom: 2rem; /* Space below details */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Space between icon and text */
+        }
+
+        .event-detail i {
+            color: var(--primary); /* Icon color */
+            font-size: 1.1em; /* Slightly larger icon */
+        }
+
+        .event-detail span {
+            font-size: 1.1rem;
+        }
+
+        .search-bar {
+            margin-top: 2rem; /* Space above search */
+        }
+
+        .search-bar select {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            min-width: 300px; /* Give it a minimum width */
+            max-width: 100%; /* Prevent overflow on small screens */
+            outline: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+            cursor: pointer;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .section-title p {
+            color: var(--text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Schedule Section */
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-content {
+            display: none;
+        }
+
+        .schedule-content.active {
+            display: block;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-time {
+            flex: 0 0 150px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .event-info {
+            flex: 1;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .event-location {
+            display: inline-block;
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        /* === NEW LOCATION SECTION CSS === */
+
+        /* Applies to the overall section */
+        .location-section {
+            /* Optional: Add a subtle background if desired */
+            /* background-color: #ffffff; */ 
+        }
+
+        /* Container for each location (Map + Details) */
+        .location-entry {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 2rem; /* Space between map and details */
+            align-items: flex-start; /* Align items to the top */
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem; /* Space between the St. Louis and Tampa sections */
+            overflow: hidden; /* Ensures content respects border radius */
+        }
+
+        /* Container for the map image */
+        .location-map {
+            flex: 1 1 400px; /* Allow map to grow, base size 400px */
+            min-width: 300px; /* Prevent map from becoming too small */
+            border-radius: 8px;
+            overflow: hidden; /* Contain the image */
+        }
+
+        .location-map img {
+            display: block; /* Remove extra space below image */
+            width: 100%; /* Make image fill its container */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the area nicely */
+            max-height: 400px; /* Optional: prevent map from getting excessively tall */
+        }
+
+        /* Container for the textual details */
+        .location-details {
+            flex: 1 1 450px; /* Allow details to grow, slightly larger base */
+            padding-left: 1rem; /* Add a little space if map is on left */
+        }
+
+        .location-details h3 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            display: inline-block; /* Make border only as wide as text */
+        }
+
+        /* Styles for Venue, Parking, Good to Know items */
+        .info-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem; /* Increased gap for better spacing */
+            line-height: 1.5; /* Adjust line height for readability */
+        }
+
+        .info-item i {
+            color: var(--primary);
+            margin-top: 0.25em; /* Fine-tune icon vertical alignment */
+            font-size: 1.2em; /* Slightly larger icons */
+            /* fa-fw class added in HTML provides fixed width */
+        }
+
+        .info-item strong {
+            display: block; /* Put label on its own line */
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .info-item p {
+            margin: 0; /* Reset paragraph margin */
+            color: var(--text);
+        }
+
+        /* === END NEW LOCATION SECTION CSS === */
+
+
+        /* --- Adjust Responsive Styles --- */
+        @media (max-width: 992px) { /* Adjust breakpoint if needed */
+            .location-map {
+            flex-basis: 300px; /* Slightly smaller base on medium screens */
+            }
+            .location-details {
+            flex-basis: 400px;
             }
         }
+
+
+        @media (max-width: 768px) {
+            /* Stack map and details vertically on smaller screens */
+            .location-entry {
+                flex-direction: column;
+                padding: 1.5rem; /* Adjust padding */
+            }
+            .location-map {
+                width: 100%; /* Make map full width */
+                flex-basis: auto; /* Reset flex basis */
+                margin-bottom: 1.5rem; /* Add space below map */
+                max-height: 300px; /* Adjust max height for mobile */
+            }
+            .location-details {
+                width: 100%; /* Make details full width */
+                flex-basis: auto; /* Reset flex basis */
+                padding-left: 0; /* Remove side padding */
+            }
+
+            .location-details h3 {
+                font-size: 1.6rem; /* Adjust heading size */
+            }
+        /* === CSS for Address Links === */
+
+        .address-link {
+            color: var(--primary-dark); /* Link color, adjust as needed */
+            text-decoration: none; /* Remove default underline */
+            /* Optional: Add subtle indicator */
+            /* border-bottom: 1px dotted var(--primary-dark);  */
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .address-link:hover,
+        .address-link:focus {
+            color: var(--primary); /* Link color on hover/focus */
+            text-decoration: underline; /* Add underline on hover/focus */
+            /* Optional: Solid underline on hover */
+            /* border-bottom: 1px solid var(--primary); */
+        }
+
+        .map-link-icon {
+            margin-left: 0.4em; /* Space between address text and icon */
+            color: var(--primary); /* Icon color */
+            /* Optional: slightly less prominent until hover */
+            /* opacity: 0.8;  */ 
+        }
+
+        /* Optional: make icon slightly more prominent on link hover */
+        /* .address-link:hover .map-link-icon {
+            opacity: 1;
+        } */
+
+        /* Adjust spacing within the info-item now that we have two <p> tags */
+        .info-item > div > p {
+            margin-bottom: 0.25rem; /* Add small space between paragraphs */
+        }
+        .info-item > div > p:last-child {
+            margin-bottom: 0; /* Remove margin from the last paragraph (the link) */
+        }
+
+        }
+
+        /* Virtual Section */
+        /*.virtual-section {
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8eeff 100%);
+        }*/
+
+        .virtual-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .virtual-info {
+            flex: 1 1 500px;
+        }
+
+        .virtual-image {
+            flex: 1 1 400px;
+            text-align: center;
+        }
+
+        .virtual-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .step {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* WiFi Section */
+        .wifi-cards {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .wifi-card {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .wifi-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .wifi-info {
+            margin-top: 1.5rem;
+        }
+
+        .wifi-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .wifi-password {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Share Section */
+        .share-section {
+            /*background: linear-gradient(135deg, #f5f7ff 0%, #e8eeff 100%); */
+        }
+
+        .share-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .share-info {
+            flex: 1 1 500px;
+        }
+
+        .share-image {
+            flex: 1 1 400px;
+            text-align: center;
+        }
+
+        .share-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: var(--secondary);
+        }
+        /* === Share Section Enhancements === */
+
+        .share-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            margin-top: 1.5rem; /* Add space above headings */
+        }
+        .share-info h3:first-of-type {
+            margin-top: 0; /* Remove top margin from the very first heading */
+        }
+
+        /* Style for the numbered steps list */
+        .steps-list {
+            margin-top: 1rem;
+            margin-left: 1.5rem; /* Indent the list */
+            padding-left: 1.5rem; /* Space for numbers */
+            list-style-type: decimal; /* Use numbers */
+        }
+
+        .steps-list li {
+            margin-bottom: 1.25rem; /* Space between steps */
+            line-height: 1.5;
+        }
+
+        .steps-list li ul {
+            margin-top: 0.5rem;
+            margin-left: 1rem; /* Indent sub-bullets */
+            list-style-type: disc; /* Use standard bullets for sub-items */
+        }
+        .steps-list li ul li {
+            margin-bottom: 0.5rem; /* Smaller space for sub-items */
+        }
+
+
+        .steps-list strong {
+            color: var(--dark);
+        }
+
+        .steps-list em {
+            font-size: 0.9em;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        /* Style for the Teams link */
+        .teams-link {
+            display: inline-block; /* Allows margin */
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #4B53BC; /* Microsoft Teams Purple */
+            color: white !important; /* Override other link styles */
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .teams-link:hover {
+            background-color: #3A4090; /* Darker purple */
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .teams-link i {
+            margin-left: 0.4em;
+            font-size: 0.8em; /* Keep icon small */
+        }
+
+
+        /* Style for the horizontal rule separator */
+        .share-divider {
+            border: none;
+            height: 1px;
+            background-color: var(--gray);
+            margin: 2.5rem 0; /* Add good spacing around the separator */
+        }
+
+        /* Style for the 'Other Ways to Engage' list */
+        .other-sharing-methods {
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+            list-style-type: disc; /* Standard bullets */
+        }
+
+        .other-sharing-methods li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Remove the old social icons styling if you haven't already */
+        .social-icons { display: none; }
+
+        /* === End Share Section Enhancements === */
+
+        /* Contact Section */
+        .contact-cards {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-card {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* === FAQ Section Styles === */
+        .faq-section {
+            /* Optional: background like the share section */
+            /*background: linear-gradient(135deg, #f5f7ff 0%, #e8eeff 100%);*/
+        }
+
+        .faq-accordion {
+            max-width: 800px; /* Limit width for readability */
+            margin: 0 auto; /* Center the accordion */
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden; /* Important for transition */
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between; /* Push icon to the right */
+            align-items: center;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background-color: white; /* Match item background */
+            border: none;
+            border-bottom: 1px solid var(--light); /* Subtle separator */
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--light);
+        }
+
+        .faq-question i {
+            font-size: 0.9em;
+            color: var(--primary);
+            transition: transform 0.3s ease-out; /* Animation for icon */
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem; /* Start with 0 padding top/bottom */
+            background-color: #ffffff;
+            color: var(--text);
+            max-height: 0; /* Start collapsed */
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Smooth transition */
+        }
+
+        .faq-answer p,
+        .faq-answer ul {
+            margin-bottom: 1rem;
+        }
+        .faq-answer ul {
+            padding-left: 1.5rem;
+        }
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+        .faq-answer a:not(.contact-button) { /* Style links within answers */
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        .faq-answer a:not(.contact-button):hover {
+            color: var(--primary-dark);
+        }
+
+        /* Active state for accordion item */
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg); /* Flip chevron */
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Set max-height large enough for content */
+            padding: 1.5rem 1.5rem; /* Add padding when open */
+        }
+
+        .faq-item:last-child .faq-question {
+            border-bottom: none; /* Remove border from last question */
+        }
+
+        /* === End FAQ Section Styles === */
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .event-time {
+                flex: 0 0 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+        /* === Favorites Feature Styles === */
+
+        .schedule-controls {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
+            justify-content: center;
+            align-items: center;
+            gap: 1rem; /* Space between tabs and button */
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.2rem; /* Slightly smaller than tab buttons */
+            background: white;
+            border: 1px solid var(--primary-dark);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .filter-btn i {
+            margin-right: 0.5em;
+            color: gold; /* Make star icon yellow */
+        }
+
+        .filter-btn.active {
+            background: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+        .filter-btn.active i {
+            color: white; /* Star color when active */
+        }
+
+
+        .event-card {
+            /* ... existing styles ... */
+            position: relative; /* Needed for absolute positioning of button */
+            padding-right: 4rem; /* Add padding to prevent text overlapping button */
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem; /* Adjust size as needed */
+            color: var(--gray); /* Default color for empty star */
+            cursor: pointer;
+            padding: 0.3rem; /* Increase clickable area */
+            line-height: 1;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .favorite-btn:hover {
+            color: gold; /* Show gold on hover */
+            transform: scale(1.1);
+        }
+
+        .favorite-btn.active .fa-star {
+            /* Switch between font-awesome styles */
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900; /* Solid style weight */
+            content: "\f005"; /* Unicode for solid star */
+            color: gold; /* Color for filled star */
+        }
+
+        /* Class to hide non-favorited sessions */
+        .event-card.session-hidden {
+            display: none;
+        }
+
+        /* === End Favorites Feature Styles === */
+
+        /* === Non-Profit Spotlight Section Styles === */
+        .nonprofit-section {
+            /*background: white; /* Give it a clean background */
+            /* Or use a gradient like other sections: */
+            /* background: linear-gradient(135deg, #e8eeff 0%, #f5f7ff 100%); */
+        }
+
+        .nonprofit-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center; /* Vertically align items */
+            background-color: var(--light); /* Lighter background for content area */
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        }
+
+        .nonprofit-info {
+            flex: 1 1 55%; /* Take slightly more space */
+            min-width: 300px;
+        }
+
+        .nonprofit-info h3 {
+            color: var(--secondary); /* Use secondary color for emphasis */
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .nonprofit-info p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .nonprofit-info strong {
+            color: var(--primary-dark);
+        }
+
+        .nonprofit-visual {
+            flex: 1 1 35%; /* Take slightly less space */
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .nonprofit-visual img {
+            max-width: 80%; /* Control logo size */
+            height: auto;
+            max-height: 150px; /* Prevent logo from being too tall */
+            border-radius: 5px; /* Optional: slight rounding */
+        }
+
+        .nonprofit-ctas {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+            gap: 1rem;
+        }
+
+        .nonprofit-cta-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex; /* Align icon and text */
+            align-items: center;
+            gap: 0.5em; /* Space between icon and text */
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .nonprofit-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .website-button {
+            background-color: var(--primary);
+            color: white;
+        }
+        .website-button:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .donate-button {
+            background-color: var(--secondary);
+            color: white;
+        }
+        .donate-button:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* === End Non-Profit Spotlight Section Styles === */
+
+        /* === Alternating Section Backgrounds === */
+        body > section:nth-of-type(even) {
+            background: var(--light-alt);
+        }
+        /* === End Alternating Section Backgrounds === */
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Architecture Day & BI Summit</div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#virtual">Virtual Access</a></li>
+                    <li><a href="#wifi">Wi-Fi</a></li>
+                    <li><a href="#share">Share</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#nonprofit-spotlight">Community Spotlight</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <!-- Background Image and Overlay are handled by CSS on .hero-section -->
+        <div class="container">
+            <div class="hero-content">
+                <h1>Architecture Day & BI Summit</h1>
+                <h2>Data & AI: Intelligence Powering Centene</h2>
+                <p>Join us for an exciting week of innovation, learning, and collaboration</p>
+
+                <div class="event-details">
+                    <div class="event-detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>June 9th – 12th</span>
+                    </div>
+                    <div class="event-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>St. Louis, Tampa & Virtual</span>
+                    </div>
+                </div>
+
+                <div class="search-bar">
+                    <select id="day-select">
+                        <option value="">Jump to a specific day</option>
+                        <option value="day1">June 9th</option>
+                        <option value="day2">June 10th</option>
+                        <option value="day3">June 11th</option>
+                        <option value="day4">June 12th</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Schedule Section -->
+        <section id="schedule" class="schedule-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Event Schedule</h2>
+                    <p>Explore our comprehensive schedule. Click the <i class="far fa-star"></i> icon to mark your favorites!</p> 
+                    <!-- Updated subtitle -->
+                    <p><strong>All times are Central Standard Time (CST)</strong></p>
+                </div>
+
+                <div class="schedule-controls"> <!-- Wrapper for tabs and filter -->
+                    <div class="schedule-tabs">
+                        <button class="tab-btn active" data-tab="day1">June 9th</button>
+                        <button class="tab-btn" data-tab="day2">June 10th</button>
+                        <button class="tab-btn" data-tab="day3">June 11th</button>
+                        <button class="tab-btn" data-tab="day4">June 12th</button>
+                        <button id="filter-favorites-btn" class="filter-btn" aria-pressed="false">
+                            <i class="fas fa-star"></i> Show Favorites Only
+                        </button>
+                    </div>
+                    
+                </div>
+
+                <div class="schedule-content-wrapper"> <!-- Wrapper for all day content -->
+                    <div class="schedule-content active" id="day1">
+                        <!-- *** Example: Apply unique ID and button to EACH card *** -->
+                        <div class="event-card" id="session-day1-1"> 
+                            <!-- Add unique ID -->
+                            <div class="event-time">8:00 AM - 3:00 PM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">BI Presentations</h3>
+                                <p>Ramon and others discuss the roadmap for BI at Centene.</p>
+                                <span class="event-location">Tampa</span>
+                            </div>
+                            <button class="favorite-btn" data-session-id="session-day1-1" aria-label="Mark as favorite" aria-pressed="false">
+                                <i class="far fa-star"></i> <!-- Default empty star -->
+                            </button>
+                        </div>
+
+                        <div class="event-card" id="session-day1-2"> 
+                            <!-- Add unique ID -->
+                            <div class="event-time">5:00 PM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">Team Dinners</h3>
+                                <p>Teams hosting dinners outside of the event space.</p>
+                                <span class="event-location">Greater Tampa Area</span>
+                            </div>
+                            <button class="favorite-btn" data-session-id="session-day1-2" aria-label="Mark as favorite" aria-pressed="false">
+                                <i class="far fa-star"></i>
+                            </button>
+                        </div>
+                        <!-- *** End Example *** -->
+                    </div>
+
+                    <div class="schedule-content" id="day2">
+                        <div class="event-card" id="session-day2-1"> 
+                            <!-- Add unique ID -->
+                            <div class="event-time">8:00 AM - 4:00 PM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">Arch Day & BI Sessions</h3>
+                                <p>Multiple sessions including a keynote themed around AI & Data at Centene</p>
+                                <span class="event-location">Main Auditorium (St. Louis), Main Auditorium (Tampa) & Virtual</span>
+                            </div>
+                            <button class="favorite-btn" data-session-id="session-day2-1" aria-label="Mark as favorite" aria-pressed="false">
+                                <i class="far fa-star"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="event-card" id="session-day2-2"> 
+                            <!-- Add unique ID -->
+                            <div class="event-time">4:00 PM - 5:30 PM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">Happy Hour</h3>
+                                <p>Join us for drinks (alcoholic and non-alcoholic) and network with attendees.</p>
+                                <span class="event-location">Mezzanine (St. Louis)</span>
+                            </div>
+                            <button class="favorite-btn" data-session-id="session-day2-2" aria-label="Mark as favorite" aria-pressed="false">
+                                <i class="far fa-star"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="schedule-content" id="day3">
+                        <div class="event-card" id="session-day3-1"> 
+                            <!-- Add unique ID -->
+                            <div class="event-time">8:00 AM - 2:30 PM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">Arch Day & BI Sessions</h3>
+                                <p>Learn about the latest best practices in data architecture and implementation.</p>
+                                <span class="event-location">Main Auditorium (St. Louis)</span>
+                            </div>
+                            <button class="favorite-btn" data-session-id="session-day3-1" aria-label="Mark as favorite" aria-pressed="false">
+                                <i class="far fa-star"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="schedule-content" id="day4">
+                        <div class="event-card" id="session-day4-1"> 
+                            <!-- Add unique ID -->
+                            <div class="event-time">9:00 AM - 4:00 PM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">Hackathon & Team Meetings</h3>
+                                <p>Join us for the hackathon or use this time to meet with your teams. We enourage you to stay Wednesday.</p>
+                                <span class="event-location">St. Louis Campus, Tampus Campus & Virtual</span>
+                            </div>
+                            <button class="favorite-btn" data-session-id="session-day4-1" aria-label="Mark as favorite" aria-pressed="false">
+                                <i class="far fa-star"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="no-favorites-message" style="display: none; text-align: center; margin-top: 2rem; color: var(--text);">
+                        You haven't marked any sessions as favorites yet. Click the <i class="far fa-star"></i> icon on a session to add it!
+                    </div>
+
+                </div> <!-- End schedule-content-wrapper -->
+            </div>
+        </section>
+
+    <!-- Location Information Section -->
+    <section id="location" class="location-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Location Information</h2>
+                <p>Find all the details you need about our event locations, including maps, parking, and transportation.</p> 
+                <!-- Slightly updated subtitle -->
+            </div>
+
+            <!-- St. Louis Location Entry -->
+            <div class="location-entry">
+                <div class="location-map">
+                    <img src="stl-map.png" alt="Map showing Centene HQ and parking in St. Louis">
+                </div>
+                <div class="location-details">
+                    <h3>St. Louis</h3>
+                    <div class="info-item"> <!-- Venue Item -->
+                        <i class="fas fa-building fa-fw"></i>
+                        <div>
+                            <strong>Venue:</strong>
+                            <p>Centene Corporate Headquarters</p>
+                            <p>
+                                <a href="https://maps.app.goo.gl/Y9j4yNR5rKF3poRn8" target="_blank" rel="noopener noreferrer" class="address-link">
+                                    7700 Forsyth Blvd, St. Louis, MO 63105
+                                    <i class="fas fa-external-link-alt fa-xs map-link-icon"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div> <!-- <<< CORRECTLY CLOSED Venue Item -->
+
+                    <div class="info-item"> <!-- Parking Item (Now a sibling) -->
+                        <i class="fas fa-car fa-fw"></i>
+                        <div>
+                            <strong>Parking:</strong>
+                            <p>7733 Carondelet Ave</p>
+                            <p>7711 Carondelet Ave</p>
+                            <p>7700 Forsyth Blvd</p>
+                            <p>7620 Forsyth Blvd</p>
+                        </div>
+                    </div> <!-- Closed Parking Item -->
+
+                    <div class="info-item"> <!-- Good to Know Item (Now a sibling) -->
+                        <i class="fas fa-info-circle fa-fw"></i>
+                        <div>
+                            <strong>Good to Know:</strong>
+                            <p>ADA Accessible: Available in Parking 3 and 4.<br>Validate parking tickets at Security Desk (Building B or C).</p>
+                        </div>
+                    </div> <!-- Closed Good to Know Item -->
+                </div>
+            </div> 
+            <!-- End St. Louis Entry -->
+
+            <!-- Tampa Location Entry -->
+            <div class="location-entry">
+                <div class="location-map">
+                    <img src="tampamap.png" alt="Map showing Centene Tampa Office and parking garage">
+                </div>
+                <div class="location-details">
+                    <h3>Tampa</h3>
+                    <div class="info-item">
+                        <i class="fas fa-building fa-fw"></i> 
+                        <!-- Added fa-fw for fixed width -->
+                        <div>
+                            <strong>Venue:</strong>
+                            <p>Centene Tampa Office</p> <!-- Keep name separate -->
+                                <p>
+                                    <a href="https://maps.app.goo.gl/vrKnJu4Xz4tU2wDw6" target="_blank" rel="noopener noreferrer" class="address-link">
+                                        8745 Henderson Rd., Tampa, FL 33634
+                                        <i class="fas fa-external-link-alt fa-xs map-link-icon"></i> <!-- Icon inside link -->
+                                    </a>
+                                </p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-car fa-fw"></i> 
+                        <!-- Added fa-fw for fixed width -->
+                        <div>
+                            <strong>Parking:</strong>
+                            <p>Free parking available in garage A. Follow signs.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-info-circle fa-fw"></i> 
+                        <!-- Changed icon, added fa-fw -->
+                        <div>
+                            <strong>Good to know:</strong>
+                            <p>Walk past Ren 2 to the Ren center building. Alternatively, you can use the boardwalk to get between buildings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- End Tampa Entry -->
+
+        </div>
+    </section>
+    <!-- End Location Information Section -->
+
+    <!-- Virtual Access Section 
+    <section id="virtual" class="virtual-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Virtual Access</h2>
+                <p>Learn how to join and participate in the event virtually from anywhere.</p>
+            </div>
+            
+            <div class="virtual-content">
+                <div class="virtual-info">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Register for Virtual Access</h3>
+                        <p>If you haven't already, register for virtual access through the company portal. You'll receive a confirmation email with your unique access link.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Test Your Setup</h3>
+                        <p>Before the event, test your setup by clicking on the pre-event test link in your confirmation email. Ensure your camera, microphone, and internet connection are working properly.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Join the Event</h3>
+                        <p>On the day of the event, click on your unique access link 10-15 minutes before the session starts. You'll be directed to our virtual platform where you can join sessions, interact with speakers, and network with other attendees.</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Participate Actively</h3>
+                        <p>Use the Q&A and chat features to ask questions and engage with presenters. Virtual breakout rooms will be available for networking and discussions.</p>
+                    </div>
+                </div>
+                
+                <div class="virtual-image">
+                    <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Virtual Event Platform">
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- WiFi Section -->
+    <section id="wifi" class="wifi-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Wi-Fi Access</h2>
+                <p>Connect to our high-speed Wi-Fi network at each location.</p>
+            </div>
+            
+            <div class="wifi-cards">
+                <div class="wifi-card">
+                    <div class="wifi-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>On Your Own Device</h3>
+                    <div class="wifi-info">
+                        <p><strong>Network Name:</strong></p>
+                        <div class="wifi-password">CNC-Guest</div>
+                        <!--<p><strong>Wifi on Company Device:</strong></p>
+                        <div class="wifi-password">CNC-User</div>-->
+                    </div>
+                </div>
+                
+                <div class="wifi-card">
+                    <div class="wifi-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Company Device</h3>
+                    <div class="wifi-info">
+                        <p><strong>Network Name:</strong></p>
+                        <div class="wifi-password">CNC-User</div>
+                        <!--<p><strong>Password:</strong></p>
+                        <div class="wifi-password">BISummit2023!</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Share Experience Section -->
+    <section id="share" class="share-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Share Your Experience!</h2>
+                <p>Let's see the event through your eyes! Share photos, insights, and connect with colleagues.</p> 
+                <!-- Slightly more engaging subtitle -->
+            </div>
+
+            <div class="share-content">
+                <div class="share-info">
+                    
+                    <h3>📸 Upload Your Photos & Videos to Teams</h3>
+                    <p>Help us capture the moments! Follow these steps to add your photos and videos directly to our event channel:</p>
+                    
+                    <ol class="steps-list">
+                        <li>
+                            <strong>Open the Channel:</strong> Click this direct link:<br>
+                            <a href="https://teams.microsoft.com/l/channel/19%3ACL0xHfh9Nz20BhseiSXvPCx2x1pHyPA-xgVAJSqltSM1%40thread.tacv2/2025%20Architecture%20Day?groupId=050da628-24c7-4bcf-b67f-b232ba58b54d&tenantId=f45ccc07-e57e-4d15-bf6f-f6cbccd2d395&ngc=true&allowXTenantAccess=true" target="_blank" rel="noopener noreferrer" class="teams-link">
+                                Join the 2025 Architecture Day Channel
+                                <i class="fas fa-external-link-alt fa-xs"></i>
+                            </a>
+                            <br><em>(You might also find QR codes on signage at the event.)</em>
+                        </li>
+                        <li>
+                            <strong>Launch Teams:</strong> Your browser will ask to open Microsoft Teams.
+                            <ul>
+                                <li>If you have the Teams app installed, choose <strong>"Open It"</strong> or similar.</li>
+                                <li>If not, you may need to install Teams or use the web version. Log in with your Centene email + network password and complete Duo 2FA if prompted.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Confirm Channel:</strong> Ensure you've landed in the correct channel: <strong>Data & Analytics Architecture Events → 2025 Architecture Day</strong>. If not, try the link or QR code again.
+                        </li>
+                        <li>
+                            <strong>Post Your Photo/Video:</strong>
+                            <ul>
+                                <li>Tap <strong>"New conversation"</strong> (or look for a camera <i class="fas fa-camera"></i> icon).</li>
+                                <li>Choose to <strong>Take photo/video</strong> or <strong>Upload</strong> from your device/gallery.</li>
+                                <li>Add an optional caption to share context!</li>
+                                <li>Hit <strong>Send</strong> (<i class="fas fa-paper-plane"></i>).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
+                    <hr class="share-divider"> 
+                    <!-- Add a visual separator -->
+
+                    <h3>Other Ways to Engage</h3>
+                    <p>Beyond photos, you can also:</p>
+                    <ul class="other-sharing-methods">
+                        <li>Comment and react to posted photos.</li>
+                        <li>Engage in discussions within the main Teams channel linked above.</li>
+                        <li>Share feedback via the post-event survey (link will be provided later).</li>
+                    </ul>
+                </div>
+
+                <div class="share-image">
+                    <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="People sharing experiences and collaborating"> 
+                    <!-- Alt text updated slightly -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Share Experience Section -->
+
+    <!-- Non-Profit Spotlight Section -->
+    <section id="nonprofit-spotlight" class="nonprofit-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Spotlight</h2>
+                <p>Meet our non-profit partner making a difference.</p>
+            </div>
+
+            <div class="nonprofit-content">
+                <div class="nonprofit-info">
+                    <h3>Crohn's & Colitis Foundation</h3>
+                    <p>We're proud to partner with the Crohn's & Colitis Foundation, a non-profit organization dedicated to finding cures for Crohn's disease and ulcerative colitis, and improving the quality of life for children and adults affected by these conditions.</p>
+                    <p><strong>Visit their table at the expo</strong> to learn more about their vital work, research initiatives, and patient support programs. Chat with their representatives and see how you can get involved!</p>
+
+                    <div class="nonprofit-ctas">
+                        <a href="https://www.crohnscolitisfoundation.org/" target="_blank" rel="noopener noreferrer" class="nonprofit-cta-button website-button">
+                            <i class="fas fa-globe"></i> Learn More Online
+                        </a>
+                        <a href="https://www.crohnscolitisfoundation.org/?form=WEB-MATCH" target="_blank" rel="noopener noreferrer" class="nonprofit-cta-button donate-button">
+                            <i class="fas fa-heart"></i> Give Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nonprofit-visual">
+                    <!-- Find a suitable logo URL. This one might work, but ideally host it or confirm usage rights -->
+                    <img src="crohnslogo.png" alt="Crohn's & Colitis Foundation Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Non-Profit Spotlight Section -->
+
+   <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact & Support</h2>
+                <p>Need help during the event? Reach out to our support team.</p> 
+                <!-- Optional: Updated subtitle -->
+            </div>
+
+            <div class="contact-cards"> 
+                <!-- Container kept for centering consistency -->
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-headset"></i> 
+                        <!-- Changed icon to headset, more general support -->
+                    </div>
+                    <div class="contact-info">
+                        <h3>Event Support</h3> 
+                        <!-- More general heading -->
+                        <p>Have questions or need assistance during the event?</p> 
+                        <!-- Updated text -->
+                        <a href="mailto:william.holt2@centene.com,mweiler@centene.com,sryan1@centene.com?subject=ArchDay/BI%20Summit%20Support%20Request" class="contact-button">
+                            Email Event Support
+                        </a> 
+                        <!-- Updated mailto link and button text -->
+                    </div>
+                </div>
+                
+                <!-- The other two contact cards have been removed -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Your quick guide to the Architecture Day & BI Summit.</p> 
+                <!-- Updated subtitle -->
+            </div>
+
+            <div class="faq-accordion">
+
+                <!-- FAQ Item 1: Dates -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What are the dates for the event?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The Architecture Day & BI Summit runs from <strong>June 9th to June 12th, 2025</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2: Locations -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Where is the event being held?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The event is hybrid! You can attend in person at:</p>
+                        <ul>
+                            <li><strong>St. Louis:</strong> Centene Corporate Headquarters, <a href="https://maps.app.goo.gl/Y9j4yNR5rKF3poRn8" target="_blank" rel="noopener noreferrer" class="address-link">7700 Forsyth Blvd, St. Louis, MO 63105 <i class="fas fa-external-link-alt fa-xs map-link-icon"></i></a></li>
+                            <li><strong>Tampa:</strong> Centene Tampa Office, <a href="https://maps.app.goo.gl/vrKnJu4Xz4tU2wDw6" target="_blank" rel="noopener noreferrer" class="address-link">8745 Henderson Rd., Tampa, FL 33634 <i class="fas fa-external-link-alt fa-xs map-link-icon"></i></a></li>
+                        </ul>
+                        <p>You can also join virtually! Check the <a href="#virtual">Virtual Access</a> section for details (details coming soon if section is still commented out).</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3: Schedule Access -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How can I find the schedule for a specific day?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can view the schedule by day using the tabs (June 9th, 10th, etc.) under the <a href="#schedule">Event Schedule</a> section. You can also use the "Jump to a specific day" dropdown menu in the top section of the page.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4: Parking STL -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Where should I park in St. Louis?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Parking is available at several locations near the Centene HQ:</p>
+                        <ul>
+                            <li>7733 Carondelet Ave</li>
+                            <li>7711 Carondelet Ave</li>
+                            <li>7700 Forsyth Blvd</li>
+                            <li>7620 Forsyth Blvd</li>
+                        </ul>
+                        <p>Remember to validate your parking ticket at the Security Desk (Building B or C). ADA Accessible parking is available in Parking 3 and 4.</p>
+                        <p>See the <a href="#location">Location Information</a> section for a map.</p>
+                </div>
+                </div>
+
+                <!-- FAQ Item 5: Parking Tampa -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Where should I park in Tampa? Is it free?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, parking is free! Follow the signs to park in Garage A. To get to the event building (Building 5), walk through the boardwalk.</p>
+                        <p>See the <a href="#location">Location Information</a> section for a map.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6: Wi-Fi Access -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do I connect to the Wi-Fi?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Please connect based on your device:</p>
+                        <ul>
+                            <li><strong>Personal Device:</strong> Connect to the <strong>CNC-Guest</strong> network.</li>
+                            <li><strong>Company Device:</strong> Connect to the <strong>CNC-User</strong> network (this should connect automatically if you're typically on the corporate network).</li>
+                        </ul>
+                        <p>More details are in the <a href="#wifi">Wi-Fi Access</a> section.</p>
+                </div>
+                </div>
+
+                <!-- FAQ Item 7: Sharing Experience -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How can I share my experience during the event?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Great question! We encourage sharing:</p>
+                        <ul>
+                            <li>Post photos and insights on our internal social platform using the hashtag <strong>#ArchDayBI2023</strong></li>
+                            <li>Upload photos to the shared album (link TBD).</li>
+                            <li>Share key takeaways in the post-event survey.</li>
+                            <li>Join the conversation in our dedicated Teams channel.</li>
+                        </ul>
+                        <p>See the <a href="#share">Share Your Experience</a> section for more.</p>
+                </div>
+                </div>
+
+                <!-- FAQ Item 8: Contact/Support -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Who do I contact if I need help during the event?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Please reach out to the Event Support team via email:</p>
+                        <p><a href="mailto:william.holt2@centene.com,mweiler@centene.com,sryan1@centene.com?subject=ArchDay/BI%20Summit%20Support%20Request" class="contact-button" style="font-size: 0.9em; padding: 0.5em 1em;">Email Event Support</a></p>
+                        <p>Check the <a href="#contact">Contact & Support</a> section for details.</p>
+                </div>
+                </div>
+                
+                <!-- FAQ Item 9: Dress Code (Example assumption) -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is the dress code?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The dress code is business casual. Comfort is key for a day of learning and networking!</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 10: Recordings (Example placeholder) -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will the sessions be recorded?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, most sessions (especially keynotes and main track presentations) are planned to be recorded. Recordings and presentation materials will be made available internally after the event. Check back here for details later!</p>
+                    </div>
+                </div>
+
+            </div> <!-- End faq-accordion -->
+        </div>
+    </section>
+    <!-- End FAQ Section -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Architecture Day & BI Summit</div>
+                <p>Data & AI: Intelligence Powering Centene</p>
+                
+                <div class="footer-links">
+                    <a href="#schedule">Schedule</a>
+                    <a href="#location">Location</a>
+                    <a href="#virtual">Virtual Access</a>
+                    <a href="#wifi">Wi-Fi</a>
+                    <a href="#share">Share</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#nonprofit-spotlight">Community Spotlight</a>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2025 Centene Corporation. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Schedule Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const scheduleContents = document.querySelectorAll('.schedule-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                scheduleContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Day Select Dropdown
+        const daySelect = document.getElementById('day-select');
+        
+        daySelect.addEventListener('change', () => {
+            const selectedDay = daySelect.value;
+            if (selectedDay) {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                scheduleContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to selected day button and content
+                const selectedBtn = document.querySelector(`[data-tab="${selectedDay}"]`);
+                selectedBtn.classList.add('active');
+                document.getElementById(selectedDay).classList.add('active');
+                
+                // Scroll to schedule section
+                document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+        
+        // Scroll Animation
+        const sections = document.querySelectorAll('section:not(.hero)');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const questionButton = item.querySelector('.faq-question');
+
+            questionButton.addEventListener('click', () => {
+                const currentlyActive = document.querySelector('.faq-item.active');
+
+                // If this item is not already active, open it and close others
+                if (!item.classList.contains('active')) {
+                    // Close the currently active item, if one exists
+                    if (currentlyActive) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    // Open the clicked item
+                    item.classList.add('active');
+                } else {
+                    // If already active, just close it
+                    item.classList.remove('active');
+                }
+            });
+        });
+
+        // --- End of FAQ Accordion script ---
+
+        // --- Add this inside the existing <script> tag ---
+
+        // Favorites Feature
+        const favoritesKey = 'archDayBiSummitFavorites';
+        const scheduleWrapper = document.querySelector('.schedule-content-wrapper');
+        const filterButton = document.getElementById('filter-favorites-btn');
+        const noFavoritesMessage = document.getElementById('no-favorites-message');
+
+        // --- Helper Functions ---
+        function getFavorites() {
+            const favs = localStorage.getItem(favoritesKey);
+            try {
+                return favs ? JSON.parse(favs) : [];
+            } catch (e) {
+                console.error("Error parsing favorites from localStorage", e);
+                return []; // Return empty array on error
+            }
+        }
+
+        function saveFavorites(favsArray) {
+            localStorage.setItem(favoritesKey, JSON.stringify(favsArray));
+        }
+
+        // --- Core Logic ---
+        function toggleFavorite(sessionId, button) {
+            const favorites = getFavorites();
+            const isFavorite = favorites.includes(sessionId);
+
+            if (isFavorite) {
+                // Remove from favorites
+                const updatedFavorites = favorites.filter(id => id !== sessionId);
+                saveFavorites(updatedFavorites);
+                button.classList.remove('active');
+                button.setAttribute('aria-pressed', 'false');
+                // Update icon via CSS (no need to change class here)
+                console.log(`Removed ${sessionId} from favorites`);
+            } else {
+                // Add to favorites
+                favorites.push(sessionId);
+                saveFavorites(favorites);
+                button.classList.add('active');
+                button.setAttribute('aria-pressed', 'true');
+                 // Update icon via CSS
+                console.log(`Added ${sessionId} to favorites`);
+            }
+
+            // Re-apply filter if it's active
+             if (filterButton.classList.contains('active')) {
+                 applyFilter();
+             }
+        }
+
+        function applyFilter() {
+            const favorites = getFavorites();
+            const allEventCards = scheduleWrapper.querySelectorAll('.event-card');
+            let favoritesShown = 0;
+
+            allEventCards.forEach(card => {
+                if (favorites.includes(card.id)) {
+                    card.classList.remove('session-hidden');
+                    favoritesShown++;
+                } else {
+                    card.classList.add('session-hidden');
+                }
+            });
+            
+             // Show message if filter is on and no favorites are visible
+            if (favoritesShown === 0 && filterButton.classList.contains('active')) {
+                noFavoritesMessage.style.display = 'block';
+            } else {
+                noFavoritesMessage.style.display = 'none';
+            }
+        }
+
+        function clearFilter() {
+            const allEventCards = scheduleWrapper.querySelectorAll('.event-card');
+            allEventCards.forEach(card => {
+                card.classList.remove('session-hidden');
+            });
+            noFavoritesMessage.style.display = 'none'; // Hide message when filter is off
+        }
+
+        // --- Initialization ---
+        function initializeFavorites() {
+            const favorites = getFavorites();
+            const favoriteButtons = document.querySelectorAll('.favorite-btn');
+
+            favoriteButtons.forEach(button => {
+                const sessionId = button.dataset.sessionId;
+                if (favorites.includes(sessionId)) {
+                    button.classList.add('active');
+                    button.setAttribute('aria-pressed', 'true');
+                     // Icon updates via CSS
+                }
+
+                // Add click listener
+                button.addEventListener('click', (e) => {
+                    // Prevent card click if implemented
+                    e.stopPropagation(); 
+                    toggleFavorite(sessionId, button);
+                });
+            });
+
+            // Initialize filter button state (if previously active, maybe?)
+            // For simplicity, we'll start with filter off on page load.
+             filterButton.classList.remove('active');
+             filterButton.setAttribute('aria-pressed', 'false');
+
+
+            // Filter button listener
+            filterButton.addEventListener('click', () => {
+                const isFilterActive = filterButton.classList.toggle('active');
+                filterButton.setAttribute('aria-pressed', isFilterActive.toString());
+
+                if (isFilterActive) {
+                    applyFilter();
+                    filterButton.innerHTML = '<i class="fas fa-star"></i> Show All Sessions'; // Update text
+                } else {
+                    clearFilter();
+                     filterButton.innerHTML = '<i class="fas fa-star"></i> Show Favorites Only'; // Reset text
+               }
+            });
+        }
+
+        // --- Run Initialization ---
+        initializeFavorites();
+
+
+        // --- Update Tab Switching Logic to Respect Filter ---
+        // Modify the existing tab button event listener slightly
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                scheduleContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const activeContent = document.getElementById(tabId);
+                if (activeContent) {
+                     activeContent.classList.add('active');
+                }
+
+                // *** ADDED: Re-apply filter if active when tab changes ***
+                if (filterButton.classList.contains('active')) {
+                     applyFilter(); 
+                     // Need to make sure applyFilter hides non-favorites even if their tab is inactive now
+                     // The current applyFilter loops through ALL cards, so this should work.
+                } else {
+                    // Ensure filter is visually off if user switches tabs while filter is off
+                    clearFilter(); 
+                }
+            });
+        });
+        // --- End of Favorites Feature script ---
     </script>
 </body>
 </html>
