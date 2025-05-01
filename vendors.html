@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Information | Centene Architecture Expo</title>
+    <!-- Link the SAME CSS and Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Paste the ENTIRE <style> block from your index.html here --- */
+        :root {
+            --primary: #4a6bff;
+            --primary-dark: #3a56d4;
+            --secondary: #7e57c2;
+            --accent: #5e35b1;
+            --light: #f5f7ff;
+            --light-alt: linear-gradient(135deg, #f5f7ff 0%, #e8eeff 100%);
+            --dark: #1a1a2e;
+            --gray: #e0e0e0;
+            --text: #333344;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--light); color: var(--text); line-height: 1.6; padding-top: 9rem; /* Add padding to prevent content overlap */}
+        .container { max-width: 960px; /* Slightly smaller container for this page */ margin: 0 auto; padding: 0 20px; }
+
+        /* Simplified Header for Vendor Page */
+        .vendor-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: fixed; /* Keep header visible */
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999; /* Below main site header if both were ever on same page */
+        }
+        .vendor-header h1 { font-size: 2rem; margin-bottom: 0.3rem;}
+        .vendor-header p { font-size: 1rem; opacity: 0.9; }
+
+        /* General Vendor Page Styling */
+        .vendor-content {
+            background-color: white;
+            padding: 2rem 2.5rem; /* Adjusted padding */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            margin-bottom: 2.5rem; /* Increased margin */
+        }
+         /* Add alternating background for sections within the main content */
+        main.container > .vendor-content:nth-of-type(even) {
+            background-color: #f8f9fd; /* A very subtle alternation */
+        }
+
+        .vendor-content h2 {
+            color: var(--primary-dark);
+            font-size: 1.7rem; /* Slightly larger */
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            display: inline-block; /* Keep border tight */
+        }
+        .vendor-content h3 {
+            color: var(--secondary);
+            font-size: 1.4rem; /* Slightly larger */
+            margin-top: 1.8rem; /* Increased spacing */
+            margin-bottom: 1rem; /* Increased spacing */
+        }
+        .vendor-content p, .vendor-content ul {
+            margin-bottom: 1rem;
+            font-size: 1rem; /* Ensure consistent font size */
+        }
+        .vendor-content ul {
+            list-style: none; /* Remove default bullets */
+            padding-left: 0.5rem;
+        }
+        .vendor-content li {
+            margin-bottom: 0.75rem; /* Increased spacing */
+            padding-left: 1.8em; /* Space for icon */
+            position: relative; /* For icon positioning */
+        }
+         .vendor-content li > i.list-icon { /* Style for icons acting as bullets */
+            position: absolute;
+            left: 0;
+            top: 0.25em; /* Adjust vertical alignment */
+            color: var(--primary);
+            width: 1.2em;
+            text-align: center;
+         }
+
+        .vendor-content strong {
+            color: var(--dark);
+            font-weight: 600; /* Slightly bolder */
+        }
+        .vendor-content code { /* Style for address block */
+            display: block;
+            background-color: var(--light);
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            border: 1px solid var(--gray); /* Add subtle border */
+        }
+        .important-note {
+            background-color: #fffbe6; /* Light yellow */
+            border-left: 4px solid #fadb14; /* Yellow border */
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .important-note strong {
+            color: #d48806; /* Darker yellow/orange */
+        }
+        /* Map Styling */
+        .vendor-map {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .vendor-map img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 450px; /* Adjust as needed */
+            object-fit: contain; /* Use contain to see whole map */
+        }
+
+
+        .vendor-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--gray);
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+         .vendor-footer a {
+            color: var(--primary);
+         }
+         /* --- Make sure other necessary styles from index.html are included if needed --- */
+
+    </style>
+</head>
+<body>
+
+    <header class="vendor-header">
+        <div class="container">
+            <h1>Centene Architecture Expo</h1>
+            <p>Vendor Information & Instructions</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="vendor-content">
+            <h2>Welcome, Valued Partners!</h2>
+            <p>We’re excited to have you join us for the Centene Architecture Expo, part of the Architecture Day & BI Summit! Below is everything you need to know for a smooth and successful experience, with specific details for St. Louis and Tampa.</p>
+
+            <div class="important-note">
+                <strong>Expo Dates & Summit Dates:</strong> While the main summit runs June 9-12, the primary **Vendor Expo days are Tuesday, June 10th and Wednesday, June 11th**.
+            </div>
+        </section>
+
+        <section class="vendor-content">
+            <h2><i class="fas fa-calendar-alt list-icon"></i> Key Dates & Times (All Vendors)</h2>
+            <ul>
+                <li><i class="fas fa-sign-in-alt list-icon"></i> <strong>Expo Setup Arrival:</strong> By <strong>10:00 AM Local Time</strong> on your assigned Expo day(s)</li>
+                <li><i class="fas fa-clock list-icon"></i> <strong>Expo Hours:</strong> Tuesday, June 10th & Wednesday, June 11th, <strong>11:00 AM – 1:00 PM Local Time</strong></li>
+                <li><i class="fas fa-cocktail list-icon"></i> <strong>Happy Hour (St. Louis Only):</strong> Tuesday, June 10th, <strong>4:00 PM – 6:00 PM CST</strong> (Expo Area)</li>
+            </ul>
+        </section>
+
+        <!-- ========================= -->
+        <!-- St. Louis Specifics       -->
+        <!-- ========================= -->
+        <section class="vendor-content location-specific">
+            <h2><i class="fas fa-map-marker-alt list-icon"></i> St. Louis - Venue & Logistics</h2>
+
+            <h3><i class="fas fa-building list-icon"></i> Address & Arrival</h3>
+            <ul>
+                <li><i class="fas fa-map-pin list-icon"></i> <strong>Venue:</strong> Centene Plaza</li>
+                 <li><i class="fas fa-building list-icon"></i> <strong>Check-in Entrance:</strong> Use the main entrance of <strong>Building B (7700 Forsyth Blvd)</strong>. Proceed to the main Security Desk.</li>
+                 <li><i class="fas fa-id-badge list-icon"></i> <strong>Check-In Process:</strong> Inform Security you are here for the Architecture Expo. They will handle badging and visitor registration.</li>
+                 <li><i class="fas fa-walking list-icon"></i> <strong>To Expo:</strong> Once badged, Centene staff will escort you across the skybridge to the Expo space </li>
+            </ul>
+
+             <h3><i class="fas fa-car list-icon"></i> Parking</h3>
+            <ul>
+                <li><i class="fas fa-parking list-icon"></i> Please park in <strong>Parking Garage 3</strong>.</li>
+                <li><i class="fas fa-map-signs list-icon"></i> <strong>Garage Address:</strong> <a href="https://maps.app.goo.gl/wDqj8xS8zGfK5X7f8" target="_blank" rel="noopener noreferrer">7726 Forsyth Blvd, Clayton, MO 63105 <i class="fas fa-external-link-alt fa-xs"></i></a></li>
+                <li><i class="fas fa-ticket-alt list-icon"></i> <strong>Validation Required:</strong> Remember to get your parking ticket validated at the Security Desk in Building B during check-in.</li>
+                <li>(Refer to the Visitor Guide for detailed maps if needed).</li>
+            </ul>
+             <div class="vendor-map">
+                 <img src="/stl-map.png" alt="Map of Centene St. Louis Campus highlighting Building B, C, and Parking 3">
+             </div>
+        </section>
+
+        <!-- ========================= -->
+        <!-- Tampa Specifics           -->
+        <!-- ========================= -->
+         <section class="vendor-content location-specific">
+            <h2><i class="fas fa-map-marker-alt list-icon"></i> Tampa - Venue & Logistics</h2>
+
+            <h3><i class="fas fa-building list-icon"></i> Address & Arrival</h3>
+            <ul>
+                 <li><i class="fas fa-map-pin list-icon"></i> <strong>Venue:</strong> Centene Tampa Office - Renaissance Center Building (Building 5)</li>
+                 <li><i class="fas fa-road list-icon"></i> <strong>Building Address:</strong> <a href="https://maps.app.goo.gl/vrKnJu4Xz4tU2wDw6" target="_blank" rel="noopener noreferrer">8745 Henderson Rd., Tampa, FL 33634 <i class="fas fa-external-link-alt fa-xs"></i></a></li>
+                <li><i class="fas fa-id-badge list-icon"></i> <strong>Check-In Process:</strong> Please confirm specific check-in procedures and location with your Centene sponsor upon arrival or beforehand.</li>
+            </ul>
+
+             <h3><i class="fas fa-car list-icon"></i> Parking</h3>
+            <ul>
+                <li><i class="fas fa-parking list-icon"></i> Free parking is available in <strong>Parking Garage A</strong>.</li>
+                <li><i class="fas fa-directions list-icon"></i> Follow the signs for visitor or event parking upon entering the campus.</li>
+                 <li><i class="fas fa-ticket-alt list-icon"></i> Parking validation is typically not required in Garage A, but confirm if unsure.</li>
+            </ul>
+
+            <h3><i class="fas fa-walking list-icon"></i> Getting to the Expo</h3>
+             <ul>
+                 <li><i class="fas fa-shoe-prints list-icon"></i> From Garage A, you may need to walk past <strong>REN 2</strong> towards the <strong>Renaissance Center building (REN 5)</strong>.</li>
+                 <li><i class="fas fa-tree list-icon"></i> Alternatively, look for signs indicating the use of the **boardwalk** to navigate between buildings.</li>
+             </ul>
+             <div class="vendor-map">
+                 <img src="/tampamap.png" alt="Map of Centene Tampa Campus highlighting Renaissance Center, REN 2, and Parking Garage A">
+             </div>
+        </section>
+
+        <!-- ========================= -->
+        <!-- Common Information        -->
+        <!-- ========================= -->
+         <section class="vendor-content">
+            <h2><i class="fas fa-box-open list-icon"></i> Expo Setup (All Vendors)</h2>
+            <h3>Provided by Centene (per table):</h3>
+             <ul>
+                 <li><i class="fas fa-table list-icon"></i> 1 Table (approx. 2’ x 5’)</li>
+                 <li><i class="fas fa-chair list-icon"></i> 2 Chairs</li>
+                 <li><i class="fas fa-desktop list-icon"></i> 1 Monitor (with USB-C cable)</li>
+                 <li><i class="fas fa-plug list-icon"></i> 1 Power Strip</li>
+             </ul>
+
+            <h3>What You Need to Bring:</h3>
+             <ul>
+                 <li><i class="fas fa-laptop list-icon"></i> Your primary laptop and any specific display adapters you might need (beyond USB-C).</li>
+                 <li><i class="fas fa-bolt list-icon"></i> Required power adapters/chargers for your equipment.</li>
+             </ul>
+
+             <h3>Optional Additions:</h3>
+              <ul>
+                 <li><i class="fas fa-person-booth list-icon"></i> Tablecloths or branded coverings.</li>
+                 <li><i class="fas fa-cookie-bite list-icon"></i> Individually wrapped treats/snacks.</li>
+                 <li><i class="fas fa-gift list-icon"></i> Give-away items (swag). <strong>Reminder:</strong> Must comply with Centene’s $50 per individual per year gift policy.</li>
+                 <li><i class="fas fa-file-alt list-icon"></i> Brochures and marketing materials.</li>
+              </ul>
+        </section>
+
+        <section class="vendor-content">
+            <h2><i class="fas fa-shipping-fast list-icon"></i> Shipping Instructions (All Vendors)</h2>
+            <p>If shipping materials ahead of time, please use the St. Louis address below, clearly marked for the Architecture Expo. Time shipments to arrive close to the event dates.</p>
+            <code>
+                Attn: DeAngela Morgan or Brittney Conklin<br>
+                <strong>Architecture Expo</strong><br> <!-- Added event name for clarity -->
+                Centene Plaza<br>
+                7700 Forsyth Blvd<br>
+                Clayton, MO 63105
+            </code>
+             <div class="important-note">
+                 <strong>Tampa Vendors:</strong> While the central shipping address is St. Louis, please confirm with your Centene sponsor if alternative arrangements are needed or preferred for large items specific to the Tampa location.
+             </div>
+            <p><strong>Return Shipments:</strong> If you need to ship materials back, please bring your own pre-printed return labels. We can assist with coordinating pickup with standard carriers from the Expo area.</p>
+        </section>
+
+        <section class="vendor-content">
+            <h2><i class="fas fa-question-circle list-icon"></i> Questions?</h2>
+            <p>Please refer to the previously provided <strong>Visitor Guide</strong> (primarily for St. Louis details) or contact your <strong>Centene sponsor or host</strong> directly for any specific questions, especially regarding Tampa logistics or unique requirements.</p>
+            <p>We look forward to seeing you!</p>
+        </section>
+
+    </main>
+
+    <footer class="vendor-footer">
+        <div class="container">
+            © 2025 Centene Corporation. All rights reserved. | <a href="index.html">Return to Main Event Site</a>
+        </div>
+    </footer>
+
+</body>
+</html>
