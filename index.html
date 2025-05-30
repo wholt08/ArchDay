@@ -196,6 +196,7 @@
         .event-card.event-breakout-header {
             background-color: var(--light-alt); /* A slightly different background */
             border-left: 5px solid var(--accent);
+            padding-right: 1.5rem; /* Reset to default */
         }
         .event-card.event-breakout-header .event-title {
             color: var(--accent);
@@ -210,6 +211,60 @@
         }
         .event-card.event-social {
             background-color: #fff0f6; /* Light pinkish */
+        }
+
+        /* Styles for Grouped Breakout Sessions */
+        .breakout-room-group {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--gray);
+        }
+        .breakout-room-group h4 {
+            font-size: 1.1em;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .breakout-room-group ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .breakout-room-group li {
+            margin-bottom: 0.75rem;
+            padding-left: 0; /* Reset padding if any inherited */
+            position: relative; /* For inline favorite button positioning */
+        }
+        .event-card.event-breakout-tampa { /* Specific styling for Tampa breakout */
+            background-color: #f0f8ff; /* AliceBlue or similar light blue */
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Inline Favorite Button for Breakouts within a group card */
+        .favorite-btn-inline {
+            background: none;
+            border: none;
+            font-size: 1.1rem; /* Slightly smaller */
+            color: var(--gray);
+            cursor: pointer;
+            padding: 0.1rem 0.3rem;
+            line-height: 1;
+            transition: color 0.2s ease, transform 0.2s ease;
+            margin-left: 0.5em; /* Space it from the text */
+            /* position: absolute; right: 0; top: 0; /* Optional: If you want to align to far right of li */
+        }
+        .favorite-btn-inline:hover {
+            color: gold;
+            transform: scale(1.1);
+        }
+        .favorite-btn-inline.active .fa-star {
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900;
+            content: "\f005";
+            color: gold;
+        }
+
+        /* Remove right padding from event-breakout-header if using inline favs */
+        .event-card.event-breakout-header {
+            padding-right: 1.5rem; /* Reset to default */
         }
 
         .search-bar {
@@ -1272,7 +1327,7 @@
                             <div class="event-time">7:30 AM - 8:00 AM</div>
                             <div class="event-info">
                                 <h3 class="event-title">Interactive Icebreaker</h3>
-                                <p>Presented by: Thaddeus Zabor</p>
+                                <!--<p>Presented by: Thaddeus Zabor</p>-->
                                 <span class="event-location">Tampa</span>
                             </div>
                             <button class="favorite-btn" data-session-id="session-day1-tpa-icebreaker" aria-label="Mark as favorite" aria-pressed="false">
@@ -1329,7 +1384,7 @@
                             <div class="event-time">9:45 AM - 10:30 AM</div>
                             <div class="event-info">
                                 <h3 class="event-title">1-S4: Quality BI Analytics</h3>
-                                <p>Speaker: JL Jimmy</p>
+                                <p>Speaker: JL, Jimmy</p>
                                 <span class="event-location">Tampa</span>
                             </div>
                             <button class="favorite-btn" data-session-id="session-day1-tpa-s4" aria-label="Mark as favorite" aria-pressed="false">
@@ -1488,125 +1543,64 @@
                             <div class="event-time">11:00 AM - 1:00 PM</div>
                             <div class="event-info">
                                 <h3 class="event-title">LUNCH & EXPO</h3>
-                                <p>Tampa Expo & St. Louis Expo happening during this time. Lunch provided at both locations.</p>
+                                <p>Lunch provided. Tampa Expo & St. Louis Expo concurrently.</p>
                                 <span class="event-location">Tampa & St. Louis</span>
                             </div>
                         </div>
                         
-                        <!-- STL Breakout Sessions Title Card -->
-                        <div class="event-card event-breakout-header" id="session-day2-stl-breakouts-header">
+                        <!-- Tampa Breakout during Lunch/Expo -->
+                        <div class="event-card event-breakout event-breakout-tampa" id="session-day2-tpa-br-ux">
+                            <div class="event-time">12:00 PM - 1:00 PM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">Tampa Breakout: UX Blueprint for Plans</h3>
+                                <p>Speaker/Room: TBD (Check on-site)</p>
+                                <span class="event-location">Tampa</span>
+                            </div>
+                            <button class="favorite-btn" data-session-id="session-day2-tpa-br-ux" aria-label="Mark as favorite" aria-pressed="false">
+                                <i class="far fa-star"></i>
+                            </button>
+                        </div>
+
+                        <!-- STL Breakout Sessions Group Card -->
+                        <div class="event-card event-breakout-header" id="session-day2-stl-breakouts-group">
                              <div class="event-time">11:10 AM - 12:50 PM</div>
                              <div class="event-info">
                                 <h3 class="event-title">St. Louis - Breakout Sessions</h3>
-                                <p>Concurrently with Lunch & Expo. Choose one session per time slot.</p>
-                                <span class="event-location">St. Louis (Specific Rooms)</span>
+                                <p>Concurrently with Lunch & Expo. Choose one session per time slot below.</p>
+                                <div class="breakout-room-group">
+                                    <h4>Room: Bldg B MPR B</h4>
+                                    <ul>
+                                        <li><strong>11:10-11:40:</strong> BR1 - From Source to Lineage: Data Design & Stewardship in Snowflake (Kathy Straus) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-br1" aria-label="Mark BR1 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>11:45-12:15:</strong> BR3 - PCS (Jeff Ayers) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-br3" aria-label="Mark BR3 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>12:20-12:50:</strong> BR5 - Blueprints to Brilliance: Making IT Patterns the Easy Button for Delivery (Charlie Cler, Dustin Bloom) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-br5" aria-label="Mark BR5 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                <div class="breakout-room-group">
+                                    <h4>Room: Bldg B MPR C</h4>
+                                    <ul>
+                                        <li><strong>11:10-11:40:</strong> BR2 - Hybrid CI/CD (Molly Fisher) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-br2" aria-label="Mark BR2 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>11:45-12:15:</strong> BR4 - How to build a production grade knowledge retrieval chatbot on Databricks (Mark Tabor) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-br4" aria-label="Mark BR4 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>12:20-12:50:</strong> BR6 - Apollo  <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-br6" aria-label="Mark BR6 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                <div class="breakout-room-group">
+                                    <h4>Room: Bldg C MPR D</h4>
+                                    <ul>
+                                        <!--<li><strong>11:10-11:40:</strong> - (Open Slot)</li>
+                                        <li><strong>11:45-12:15:</strong> - (Open Slot)</li> -->
+                                        <li><strong>12:20-12:50:</strong> First Robotics Presentation <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-robotics" aria-label="Mark First Robotics as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                 <div class="breakout-room-group">
+                                    <h4>Room: Bldg C MPR E</h4>
+                                    <ul>
+                                        <li><strong>11:00 AM - 1:00 PM (Block):</strong> AI CoE + WIS Mentorship Program Readout <button class="favorite-btn favorite-btn-inline" data-session-id="session-day2-stl-aicoe-wis" aria-label="Mark AI CoE + WIS as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                <span class="event-location">St. Louis (Breakout Rooms)</span>
                              </div>
+                             <!-- No global favorite button for the group card -->
                         </div>
-
-                        <!-- STL Breakouts - MPR B -->
-                        <div class="event-card event-breakout" id="session-day2-stl-br1">
-                            <div class="event-time">11:10 AM - 11:40 AM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR1: Data Arch</h3>
-                                <p>Speaker: Kathy Straus</p>
-                                <span class="event-location">St. Louis - Bldg B MPR B</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-br1" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day2-stl-br3">
-                            <div class="event-time">11:45 AM - 12:15 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR3: PCS</h3>
-                                <p>Speaker: Jeff Ayers</p>
-                                <span class="event-location">St. Louis - Bldg B MPR B</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-br3" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day2-stl-br5">
-                            <div class="event-time">12:20 PM - 12:50 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR5: Solution Delivery</h3>
-                                <p>Speaker: KJ Jennings</p>
-                                <span class="event-location">St. Louis - Bldg B MPR B</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-br5" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-
-                        <!-- STL Breakouts - MPR C -->
-                         <div class="event-card event-breakout" id="session-day2-stl-br2">
-                            <div class="event-time">11:10 AM - 11:40 AM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR2: Hybrid CI/CD</h3>
-                                <p>Speaker: Molly Fisher</p>
-                                <span class="event-location">St. Louis - Bldg B MPR C</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-br2" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day2-stl-br4">
-                            <div class="event-time">11:45 AM - 12:15 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR4: Databricks</h3>
-                                <p>Speaker: Mark Tabor</p>
-                                <span class="event-location">St. Louis - Bldg B MPR C</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-br4" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day2-stl-br6">
-                            <div class="event-time">12:20 PM - 12:50 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR6: Crohn's & Colitis Foundation</h3>
-                                <p>Speaker: TBD (Representing the foundation)</p>
-                                <span class="event-location">St. Louis - Bldg B MPR C</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-br6" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        
-                        <!-- STL Breakouts - MPR D -->
-                        <div class="event-card event-breakout" id="session-day2-stl-robotics">
-                            <div class="event-time">12:20 PM - 12:50 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">First Robotics Presentation</h3>
-                                <span class="event-location">St. Louis - Bldg C MPR D</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-robotics" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-
-                        <!-- STL Breakouts - MPR E -->
-                        <div class="event-card event-breakout" id="session-day2-stl-aicoe-wis">
-                            <div class="event-time">11:00 AM - 1:00 PM (Block)</div> <!-- Assuming it spans this block -->
-                            <div class="event-info">
-                                <h3 class="event-title">AI CoE + WIS Mentorship Program Readout</h3>
-                                <span class="event-location">St. Louis - Bldg C MPR E</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day2-stl-aicoe-wis" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        
-                        <!-- Tampa Breakouts Info Card -->
-                        <div class="event-card event-breakout-header" id="session-day2-tpa-breakouts-info">
-                             <div class="event-time">11:00 AM - 1:00 PM</div>
-                             <div class="event-info">
-                                <h3 class="event-title">Tampa - Breakout Sessions?</h3>
-                                <p>Details for Tampa breakout sessions during the Expo/Lunch period were not specified in this view. Please check on-site signage or local announcements.</p>
-                                <span class="event-location">Tampa</span>
-                             </div>
-                        </div>
-
 
                         <!-- Afternoon Common Sessions -->
                         <div class="event-card" id="session-day2-s4">
@@ -1636,7 +1630,7 @@
                         <div class="event-card event-break" id="session-day2-break2">
                             <div class="event-time">2:15 PM - 2:30 PM</div>
                             <div class="event-info">
-                                <h3 class="event-title">BREAK & Activity #1 (RPS)</h3>
+                                <h3 class="event-title">BREAK & Rock, Paper, Scissors Tournament!</h3>
                                 <span class="event-location">Tampa & St. Louis</span>
                             </div>
                         </div>
@@ -1665,7 +1659,7 @@
                             </button>
                         </div>
 
-                        <div class="event-card event-social" id="session-day2-evening"> <!-- Added event-social class -->
+                        <div class="event-card event-social" id="session-day2-evening">
                             <div class="event-time">4:00 PM - 6:00 PM</div>
                             <div class="event-info">
                                 <h3 class="event-title">Evening Activities</h3>
@@ -1691,7 +1685,7 @@
                         </div>
 
                         <div class="event-card" id="session-day3-s1">
-                            <div class="event-time">8:00 AM - 9:00 AM</div>
+                            <div class="event-time">8:00 AM - 8:45 AM</div> <!-- Note: Image shows 8:00-9:00, but S2 starts 9:00. Adjusted for S2. -->
                             <div class="event-info">
                                 <h3 class="event-title">3-S1: Vision Lab: Future 2027 - BI & Arch</h3>
                                 <p>Speakers: Ramon Rivera, Jonathan Salmon, Pete Foszpanczyk</p>
@@ -1700,6 +1694,14 @@
                             <button class="favorite-btn" data-session-id="session-day3-s1" aria-label="Mark as favorite" aria-pressed="false">
                                 <i class="far fa-star"></i>
                             </button>
+                        </div>
+                        
+                        <div class="event-card event-break" id="session-day3-break-early">
+                            <div class="event-time">8:45 AM - 9:00 AM</div>
+                            <div class="event-info">
+                                <h3 class="event-title">BREAK</h3>
+                                <span class="event-location">Tampa & St. Louis</span>
+                            </div>
                         </div>
 
                         <div class="event-card" id="session-day3-s2">
@@ -1734,122 +1736,71 @@
                             </button>
                         </div>
 
-                        <!-- Lunch, Expo & Tampa Specific Session Block -->
-                        <div class="event-card event-meal event-expo" id="session-day3-lunch-expo-tpa-main">
-                            <div class="event-time">11:00 AM - 1:00 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">LUNCH, EXPO & TAMPA MAIN SESSION</h3>
-                                <p><strong>Tampa Main Track:</strong> Operational Enterprise Reporting Governance (Mark Thaddeus)</p>
-                                <p>Tampa Expo & St. Louis Expo also happening during this time. Lunch provided at both locations.</p>
-                                <span class="event-location">Tampa (Main Session + Expo) & St. Louis (Expo + Breakouts)</span>
-                            </div>
-                             <button class="favorite-btn" data-session-id="session-day3-lunch-expo-tpa-main" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i> <!-- Favorite button for Tampa main session -->
-                            </button>
-                        </div>
+                                                <!-- Lunch & Expo Block -->
+                                                <div class="event-card event-meal event-expo" id="session-day3-lunch-expo">
+                                                    <div class="event-time">11:00 AM - 1:00 PM</div>
+                                                    <div class="event-info">
+                                                        <h3 class="event-title">LUNCH & EXPO</h3>
+                                                        <p>Lunch provided. Tampa Expo & St. Louis Expo concurrently.</p>
+                                                        <span class="event-location">Tampa & St. Louis</span>
+                                                    </div>
+                                                    <!-- No favorite button for general lunch/expo -->
+                                                </div>
+                                                
+                                                <!-- Tampa Main Track Session during Lunch/Expo -->
+                                                <div class="event-card event-breakout event-breakout-tampa" id="session-day3-tpa-reporting-gov">
+                                                    <!-- Re-using event-breakout-tampa class for similar styling if desired -->
+                                                    <div class="event-time">12:00 PM - 1:00 PM</div>
+                                                    <div class="event-info">
+                                                        <h3 class="event-title">Tampa Main Track: Operational Enterprise Reporting Governance</h3>
+                                                        <p>Speaker: Mark, Thaddeus</p>
+                                                        <span class="event-location">Tampa</span>
+                                                    </div>
+                                                    <button class="favorite-btn" data-session-id="session-day3-tpa-reporting-gov"
+                                                        aria-label="Mark Tampa Reporting Governance as favorite" aria-pressed="false">
+                                                        <i class="far fa-star"></i>
+                                                    </button>
+                                                </div>
                         
-                        <!-- STL Breakout Sessions Title Card (Same as Day 2) -->
-                        <div class="event-card event-breakout-header" id="session-day3-stl-breakouts-header">
+                        <!-- STL Breakout Sessions Group Card -->
+                        <div class="event-card event-breakout-header" id="session-day3-stl-breakouts-group">
                              <div class="event-time">11:10 AM - 12:50 PM</div>
                              <div class="event-info">
                                 <h3 class="event-title">St. Louis - Breakout Sessions</h3>
-                                <p>Concurrently with Lunch & Expo. Choose one session per time slot.</p>
-                                <span class="event-location">St. Louis (Specific Rooms)</span>
+                                <p>Concurrently with Lunch & Expo. Choose one session per time slot below.</p>
+                                <div class="breakout-room-group">
+                                    <h4>Room: Bldg B MPR B</h4>
+                                    <ul>
+                                        <li><strong>11:10-11:40:</strong> BR1 - From Source to Lineage: Data Design & Stewardship in Snowflake (Kathy Straus) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-br1" aria-label="Mark BR1 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>11:45-12:15:</strong> BR3 - PCS (Jeff Ayers) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-br3" aria-label="Mark BR3 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>12:20-12:50:</strong> BR5 - Own It Like a Pro: What It Really Means to Be a Service Owner (Jennifer Halverson, Yvonne Arnold) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-br5" aria-label="Mark BR5 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                <div class="breakout-room-group">
+                                    <h4>Room: Bldg B MPR C</h4>
+                                    <ul>
+                                        <li><strong>11:10-11:40:</strong> BR2 - Hybrid CI/CD (Molly Fisher) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-br2" aria-label="Mark BR2 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>11:45-12:15:</strong> BR4 - How to build a production grade knowledge retrieval chatbot on Databricks (Mark Tabor) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-br4" aria-label="Mark BR4 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                        <li><strong>12:20-12:50:</strong> BR6 - Apollo (Noah?) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-br6" aria-label="Mark BR6 as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                <div class="breakout-room-group">
+                                    <h4>Room: Bldg C MPR D</h4>
+                                    <ul>
+                                        <!-- <li><strong>11:10-11:40:</strong> - (Open Slot)</li>
+                                        <li><strong>11:45-12:15:</strong> - (Open Slot)</li> -->
+                                        <li><strong>12:20-12:50:</strong> Crohn's & Colitis Foundation Presentation (TBD) <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-crohns" aria-label="Mark Crohn's & Colitis as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                 <div class="breakout-room-group">
+                                    <h4>Room: Bldg C MPR E</h4>
+                                    <ul>
+                                        <li><strong>11:00 AM - 1:00 PM (Block):</strong> AI CoE + WIS Mentorship Program Readout <button class="favorite-btn favorite-btn-inline" data-session-id="session-day3-stl-aicoe-wis" aria-label="Mark AI CoE + WIS as favorite" aria-pressed="false"><i class="far fa-star"></i></button></li>
+                                    </ul>
+                                </div>
+                                <span class="event-location">St. Louis (Breakout Rooms)</span>
                              </div>
-                        </div>
-
-                        <!-- STL Breakouts - MPR B (Same as Day 2) -->
-                        <div class="event-card event-breakout" id="session-day3-stl-br1">
-                            <div class="event-time">11:10 AM - 11:40 AM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR1: Data Arch</h3>
-                                <p>Speaker: Kathy Straus</p>
-                                <span class="event-location">St. Louis - Bldg B MPR B</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-br1" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day3-stl-br3">
-                            <div class="event-time">11:45 AM - 12:15 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR3: PCS</h3>
-                                <p>Speaker: Jeff Ayers</p>
-                                <span class="event-location">St. Louis - Bldg B MPR B</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-br3" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day3-stl-br5">
-                            <div class="event-time">12:20 PM - 12:50 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR5: Solution Delivery</h3>
-                                <p>Speaker: KJ Jennings</p>
-                                <span class="event-location">St. Louis - Bldg B MPR B</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-br5" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-
-                        <!-- STL Breakouts - MPR C (Same as Day 2) -->
-                         <div class="event-card event-breakout" id="session-day3-stl-br2">
-                            <div class="event-time">11:10 AM - 11:40 AM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR2: Hybrid CI/CD</h3>
-                                <p>Speaker: Molly Fisher</p>
-                                <span class="event-location">St. Louis - Bldg B MPR C</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-br2" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day3-stl-br4">
-                            <div class="event-time">11:45 AM - 12:15 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR4: Databricks</h3>
-                                <p>Speaker: Mark Tabor</p>
-                                <span class="event-location">St. Louis - Bldg B MPR C</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-br4" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        <div class="event-card event-breakout" id="session-day3-stl-br6">
-                            <div class="event-time">12:20 PM - 12:50 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">BR6: Crohn's & Colitis Foundation</h3>
-                                <p>Speaker: TBD (Representing the foundation)</p>
-                                <span class="event-location">St. Louis - Bldg B MPR C</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-br6" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-                        
-                        <!-- STL Breakouts - MPR D (Same as Day 2) -->
-                        <div class="event-card event-breakout" id="session-day3-stl-robotics">
-                            <div class="event-time">12:20 PM - 12:50 PM</div>
-                            <div class="event-info">
-                                <h3 class="event-title">First Robotics Presentation</h3>
-                                <span class="event-location">St. Louis - Bldg C MPR D</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-robotics" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
-                        </div>
-
-                        <!-- STL Breakouts - MPR E (Same as Day 2) -->
-                        <div class="event-card event-breakout" id="session-day3-stl-aicoe-wis">
-                            <div class="event-time">11:00 AM - 1:00 PM (Block)</div>
-                            <div class="event-info">
-                                <h3 class="event-title">AI CoE + WIS Mentorship Program Readout</h3>
-                                <span class="event-location">St. Louis - Bldg C MPR E</span>
-                            </div>
-                            <button class="favorite-btn" data-session-id="session-day3-stl-aicoe-wis" aria-label="Mark as favorite" aria-pressed="false">
-                                <i class="far fa-star"></i>
-                            </button>
+                             <!-- No global favorite button for the group card -->
                         </div>
                         
                         <!-- Afternoon Common Sessions -->
@@ -1880,8 +1831,8 @@
                         <div class="event-card" id="session-day3-s6">
                             <div class="event-time">2:30 PM - 3:00 PM</div>
                             <div class="event-info">
-                                <h3 class="event-title">3-S6: Solution Delivery & Business Managed Enablement</h3>
-                                <p>Speaker: KJ Jennings</p>
+                                <h3 class="event-title">3-S6: Hit the Easy Button on Solution Delivery & Business Managed Enablement</h3>
+                                <p>Speakers: KJ Jennings, Jim Petty, Mo Sepehrrad</p>
                                 <span class="event-location">Tampa & St. Louis (Virtual Available)</span>
                             </div>
                             <button class="favorite-btn" data-session-id="session-day3-s6" aria-label="Mark as favorite" aria-pressed="false">
@@ -1889,7 +1840,7 @@
                             </button>
                         </div>
 
-                        <div class="event-card event-wrapup" id="session-day3-wrapup"> <!-- Added event-wrapup class -->
+                        <div class="event-card event-wrapup" id="session-day3-wrapup">
                             <div class="event-time">3:00 PM - 3:15 PM</div>
                             <div class="event-info">
                                 <h3 class="event-title">Conference Wrap-up</h3>
@@ -2622,7 +2573,7 @@
         // --- Initialization ---
         function initializeFavorites() {
             const favorites = getFavorites();
-            const favoriteButtons = document.querySelectorAll('.favorite-btn');
+            const favoriteButtons = document.querySelectorAll('.favorite-btn, .favorite-btn-inline');
 
             favoriteButtons.forEach(button => {
                 const sessionId = button.dataset.sessionId;
